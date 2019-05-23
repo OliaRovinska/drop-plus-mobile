@@ -14,9 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\ResortListItemView.xaml.cs">
-      <DependentUpon>ResortListItemView.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\PopularResortsPage.xaml.cs">
       <DependentUpon>PopularResortsPage.xaml</DependentUpon>
     </Compile>
@@ -29,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Controls\ResortListItemView.xaml">
+    <EmbeddedResource Update="Controls\ResortListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PopularResortsPage.xaml">
