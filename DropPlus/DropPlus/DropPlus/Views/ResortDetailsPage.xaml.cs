@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace DropPlus.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PopularToursPage : ContentPage
+	public partial class ResortDetailsPage : ContentPage
 	{
-		public PopularToursPage ()
+		public ResortDetailsPage()
 		{
 			InitializeComponent ();
 		}

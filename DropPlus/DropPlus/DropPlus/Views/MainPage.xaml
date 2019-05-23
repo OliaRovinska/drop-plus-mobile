@@ -14,7 +14,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ToursPage />
+                <views:ResortsPage />
             </x:Arguments>
         </NavigationPage>
         
@@ -25,7 +25,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:PopularToursPage />
+                <views:PopularResortsPage />
             </x:Arguments>
         </NavigationPage>
 

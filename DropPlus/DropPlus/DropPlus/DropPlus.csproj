@@ -14,20 +14,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Compile Update="Controls\ResortListItemView.xaml.cs">
+      <DependentUpon>ResortListItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PopularResortsPage.xaml.cs">
+      <DependentUpon>PopularResortsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ResortDetailsPage.xaml.cs">
+      <DependentUpon>ResortDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ResortsPage.xaml.cs">
+      <DependentUpon>ResortsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\PopularToursPage.xaml">
+    <EmbeddedResource Update="Controls\ResortListItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PopularResortsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TourDetailsPage.xaml">
+    <EmbeddedResource Update="Views\ResortDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ToursPage.xaml">
+    <EmbeddedResource Update="Views\ResortsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
