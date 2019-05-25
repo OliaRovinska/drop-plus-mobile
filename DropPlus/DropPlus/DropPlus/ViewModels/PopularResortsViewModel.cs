@@ -27,7 +27,24 @@ namespace DropPlus.ViewModels
                     Location = "Синевир",
                     IsFavourite = true,
                     Description = "Солотвино це лікувально – оздоровчий курорт.",
-                    Seasons = new ObservableCollection<SeasonEnum>() {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring}
+                    Seasons = new ObservableCollection<SeasonEnum>() {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring},
+                    Reviews = new ObservableCollection<ReviewViewModel>()
+                    {
+                        new ReviewViewModel()
+                        {
+                            Rating = 3.5f,
+                            Text = "Після відвідання цього туру, лишолося багато приємних вражень. Серед переваг я можу виділити наступні: гарний сервіс, гарна природа і чисті номери. Серед недоліків: фвіфіваіб, фіа івафіафів і афівжаолждфвоіалдж",
+                            User = new UserViewModel() {FirstName = "Сергій", LastName = "Шевченко", Location = "Львів, Рясне", Photo = "https://jbwebanalytics.com/wp-content/uploads/2015/11/Brian-Toomey.png" },
+                            Date = DateTime.Now
+                        },
+                        new ReviewViewModel()
+                        {
+                            Rating = 4.5f,
+                            Text = "Після відвідання цього туру, лишолося багато приємних вражень.",
+                            User = new UserViewModel() {FirstName = "Оля", LastName = "Ровінська", Location = "Львів, Рясне", Photo = "https://www.unitedagents.co.uk/sites/default/files/styles/client_thumb_400x400/public/thumbnails/image/Headshot%201.PNG?itok=kHVT8TNT&c=277a71a7cdf9a41c57ff520dc593f271" },
+                            Date = new DateTime(2017, 11, 25)
+                        },
+                    }
                 }
             };
         }

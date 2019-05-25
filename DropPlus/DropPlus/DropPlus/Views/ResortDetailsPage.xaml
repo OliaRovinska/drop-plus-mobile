@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:DropPlus.Converters"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="DropPlus.Views.ResortDetailsPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:FavoriteImageConverter x:Key="FavoriteImageConverter" />
             <converters:SeasonImageConverter x:Key="SeasonImageConverter" />
+            <converters:DateTimeConverter x:Key="DateTimeConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -38,6 +40,32 @@
                 </ListView>
 
                 <Label Text="{Binding Description}" FontSize="Small" TextColor="{StaticResource TextColor}" Margin="10, 0, 10, 0"/>
+
+                <!-- reviews -->
+                <StackLayout Orientation="Horizontal" Padding="10, 10, 10, 0">
+                    <Label TextColor="{StaticResource TextColor}" Text="Відгуки" FontSize="Medium" />
+                    <Image Source="add.png" HeightRequest="32" WidthRequest="32" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <ListView ItemsSource="{Binding Reviews}" HasUnevenRows="True" ItemSelected="ListView_OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="Center" Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <controls:CircleImage Source="{Binding Path=User.Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" />
+                                        <StackLayout Margin="10, 0, 0, 0" Spacing="3">
+                                            <Label Text="{Binding User.FirstName}" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                                            <Label Text="{Binding User.Location}" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                                            <Label Text="{Binding Date, Converter={StaticResource DateTimeConverter}}" FontSize="Micro" TextColor="{StaticResource TextColor}" />
+                                        </StackLayout>
+                                        <Label Margin="0, 0, 5, 0" Text="{Binding Rating}" FontSize="Small" TextColor="{StaticResource TextColor}" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                    <Label Margin="0, 5, 0, 0" Text="{Binding Text}" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

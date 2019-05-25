@@ -67,6 +67,17 @@ namespace DropPlus.ViewModels
             }
         }
 
+        private ObservableCollection<ReviewViewModel> _reviews;
+        public ObservableCollection<ReviewViewModel> Reviews
+        {
+            get => _reviews;
+            set
+            {
+                _reviews = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand UpdateFavouriteCommand { get; }
         private void UpdateFavourite()
         {
