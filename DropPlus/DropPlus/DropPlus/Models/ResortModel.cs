@@ -4,5 +4,6 @@
     {
         public string Image { get; set; }
         public string Location { get; set; }
+        public bool IsFavourite { get; set; }
     }
 }

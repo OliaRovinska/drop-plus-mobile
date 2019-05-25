@@ -12,20 +12,17 @@ namespace DropPlus.Controls
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ResortListView : ContentView
 	{
-        public static readonly BindableProperty ResortsProperty = BindableProperty.Create(
-            propertyName: "Resorts",
-            returnType: typeof(List<ResortModel>),
-            declaringType: typeof(ResortListView));
-
-        public List<ResortModel> Resorts
-        {
-            get => (List<ResortModel>)GetValue(ResortsProperty);
-            set => SetValue(ResortsProperty, value);
-        }
-
         public ResortListView ()
 		{
 			InitializeComponent ();
+        }
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                ((ListView) sender).SelectedItem = null;
+            }
         }
     }
 }

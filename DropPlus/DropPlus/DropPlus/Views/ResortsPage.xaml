@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <controls:ResortListView Resorts="{Binding Resorts}" />
+            <controls:ResortListView />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
