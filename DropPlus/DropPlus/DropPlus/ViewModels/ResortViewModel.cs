@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using DropPlus.Enums;
-using DropPlus.Models;
 using Xamarin.Forms;
 
 namespace DropPlus.ViewModels
@@ -57,8 +56,8 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private SeasonEnum[] _seasons;
-        public SeasonEnum[] Seasons
+        private ObservableCollection<SeasonEnum> _seasons;
+        public ObservableCollection<SeasonEnum> Seasons
         {
             get => _seasons;
             set

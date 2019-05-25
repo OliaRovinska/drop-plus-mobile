@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DropPlus.Enums;
 
@@ -18,7 +19,7 @@ namespace DropPlus.ViewModels
                     Location = "Солотвино",
                     IsFavourite = false,
                     Description = "Солотвино це лікувально – оздоровчий курорт. З 1968 тут практикують лікування астми та інших захворювань дихальних шляхів в спеціальних палатах, розташованих на глибині понад 200м. В 1976 р. було побудувано Українську республіканську алергологічну лікарню, яка успішно працює до тепер. Щорічно влітку до Солотвино приїзджає багато туристів, щоб полежати в солених озерах, куди ропа(насичена солями вода) потрапляє безпосередньо з шахти. Саме полежати, тому що вода саме виштовхує тіло на поверхню, що створює ефект невагомості. Солені озера Солотвино містять лікувальну ропу та сульфідну грязь. Навколо озер розташовані пляжі, кафе, бази відпочинку",
-                    Seasons = new SeasonEnum[] {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring}
+                    Seasons = new ObservableCollection<SeasonEnum> {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring}
                 },
                 new ResortViewModel()
                 {
@@ -26,7 +27,7 @@ namespace DropPlus.ViewModels
                     Location = "Синевир",
                     IsFavourite = true,
                     Description = "Солотвино це лікувально – оздоровчий курорт.",
-                    Seasons = new SeasonEnum[] {SeasonEnum.Autumn, SeasonEnum.Winter}
+                    Seasons = new ObservableCollection<SeasonEnum>() {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring}
                 }
             };
         }

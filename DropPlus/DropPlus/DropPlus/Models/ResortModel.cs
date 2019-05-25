@@ -1,4 +1,5 @@
-﻿using DropPlus.Enums;
+﻿using System.Collections.Generic;
+using DropPlus.Enums;
 
 namespace DropPlus.Models
 {
@@ -8,6 +9,6 @@ namespace DropPlus.Models
         public string Location { get; set; }
         public bool IsFavourite { get; set; }
         public string Description { get; set; }
-        public SeasonEnum[] Seasons { get; set; }
+        public List<SeasonEnum> Seasons { get; set; }
     }
 }
