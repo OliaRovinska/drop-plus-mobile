@@ -16,7 +16,7 @@ namespace DropPlus.Views
 		{
 			InitializeComponent ();
 
-            this.BindingContext = new ResortsViewModel();
+            BindingContext = new ResortsViewModel();
 	    }
 	}
 }
