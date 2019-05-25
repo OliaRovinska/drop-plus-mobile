@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
+using DropPlus.Enums;
 using DropPlus.Models;
 using Xamarin.Forms;
 
@@ -41,6 +42,28 @@ namespace DropPlus.ViewModels
             set
             {
                 _isFavourite = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _description;
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                _description = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private SeasonEnum[] _seasons;
+        public SeasonEnum[] Seasons
+        {
+            get => _seasons;
+            set
+            {
+                _seasons = value;
                 OnPropertyChanged();
             }
         }

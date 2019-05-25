@@ -1,12 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:DropPlus.Converters"
              x:Class="DropPlus.Views.ResortDetailsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FavoriteImageConverter x:Key="FavoriteImageConverter" />
+            <converters:SeasonImageConverter x:Key="SeasonImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <AbsoluteLayout Margin="0, 0, 0, 10" HeightRequest="100">
+                    <Image Source="{Binding Image}" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                    <Label Text="{Binding Location}" Margin="5, 0, 0, 5" FontSize="Large" TextColor="GhostWhite"  AbsoluteLayout.LayoutBounds="0, 1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Image Source="{Binding IsFavourite, Converter={StaticResource FavoriteImageConverter}}" Margin="0, 0, 5, 5" AbsoluteLayout.LayoutBounds="1, 1, 24, 24" AbsoluteLayout.LayoutFlags="PositionProportional">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateFavouriteCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </AbsoluteLayout>
+
+                <Label TextColor="{StaticResource TextColor}" Text="Найкращі сезони: " FontSize="Medium" Margin="10, 0, 0, 0"/>
+                <ListView ItemsSource="{Binding Seasons}" SeparatorVisibility="None" RowHeight="30" ItemSelected="ListView_OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <Image Margin="20, 0, 0, 0" Source="{Binding ., Converter={StaticResource SeasonImageConverter}}" WidthRequest="16" HeightRequest="16" />
+                                    <Label Text="{Binding .}" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Text="{Binding Description}" FontSize="Small" TextColor="{StaticResource TextColor}" Margin="10, 0, 10, 0"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

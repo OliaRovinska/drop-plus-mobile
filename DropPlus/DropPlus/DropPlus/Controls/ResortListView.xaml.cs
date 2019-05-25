@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DropPlus.Models;
+using DropPlus.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,6 +23,7 @@ namespace DropPlus.Controls
             if (e.SelectedItem != null)
             {
                 ((ListView) sender).SelectedItem = null;
+                Navigation.PushAsync(new ResortDetailsPage() { BindingContext = e.SelectedItem });
             }
         }
     }
