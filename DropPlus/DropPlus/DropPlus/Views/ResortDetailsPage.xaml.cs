@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DropPlus.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +15,11 @@ namespace DropPlus.Views
 		public ResortDetailsPage()
 		{
 			InitializeComponent ();
-		}
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += OnAddReviewPage;
+            addReviewImage.GestureRecognizers.Add(tapGestureRecognizer);
+        }
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -23,6 +27,19 @@ namespace DropPlus.Views
             {
                 ((ListView)sender).SelectedItem = null;
             }
+        }
+
+        private void OnAddReviewPage(object sender, EventArgs e)
+        {
+            var addReviewPage = new AddReviewPage() {BindingContext = new ReviewViewModel()};
+            addReviewPage.OnAddReview += OnAddReview;
+            Navigation.PushAsync(addReviewPage);
+        }
+
+        private void OnAddReview(ReviewViewModel review)
+        {
+            var resort = (ResortViewModel)BindingContext;
+            resort.Reviews.Add(review);
         }
     }
 }

@@ -44,7 +44,7 @@
                 <!-- reviews -->
                 <StackLayout Orientation="Horizontal" Padding="10, 10, 10, 0">
                     <Label TextColor="{StaticResource TextColor}" Text="Відгуки" FontSize="Medium" />
-                    <Image Source="add.png" HeightRequest="32" WidthRequest="32" HorizontalOptions="EndAndExpand" />
+                    <Image Source="add.png" HeightRequest="32" WidthRequest="32" HorizontalOptions="EndAndExpand"  x:Name="addReviewImage" />
                 </StackLayout>
                 <ListView ItemsSource="{Binding Reviews}" HasUnevenRows="True" ItemSelected="ListView_OnItemSelected">
                     <ListView.ItemTemplate>

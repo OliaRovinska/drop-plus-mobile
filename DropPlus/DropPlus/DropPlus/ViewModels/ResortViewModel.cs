@@ -9,6 +9,8 @@ namespace DropPlus.ViewModels
     {
         public ResortViewModel()
         {
+            Reviews = new ObservableCollection<ReviewViewModel>();
+
             UpdateFavouriteCommand = new Command(UpdateFavourite);
         }
 
