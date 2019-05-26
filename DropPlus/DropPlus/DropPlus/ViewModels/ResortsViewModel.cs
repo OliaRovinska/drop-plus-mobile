@@ -21,7 +21,7 @@ namespace DropPlus.ViewModels
                 {
                     Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
                     Location = "Синевир",
-                    IsFavourite = true
+                    IsFavourite = false
                 },
                 new ResortViewModel()
                 {
@@ -33,7 +33,7 @@ namespace DropPlus.ViewModels
                 {
                     Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
                     Location = "Синевир",
-                    IsFavourite = true
+                    IsFavourite = false
                 },
                 new ResortViewModel()
                 {
@@ -45,7 +45,7 @@ namespace DropPlus.ViewModels
                 {
                     Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
                     Location = "Синевир",
-                    IsFavourite = true
+                    IsFavourite = false
                 }
             };
         }

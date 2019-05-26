@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DropPlus.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +17,11 @@ namespace DropPlus.Views
 			InitializeComponent ();
 
             BindingContext = App.User;
+        }
+
+        private void OnFavouriteResortsClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FavouriteResortsPage() { BindingContext = new FavouriteResortsViewModel() { Resorts = App.User.FavouriteResorts } });
         }
     }
 }

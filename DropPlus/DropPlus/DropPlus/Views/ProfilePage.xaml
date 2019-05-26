@@ -17,7 +17,7 @@
                 <controls:CircleImage Source="{Binding Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                 <Label Text="{Binding UserName}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
 
-                <Button Margin="0, 5" Text="Мої вподобані курорти" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" />
+                <Button Margin="0, 5" Text="Мої вподобані курорти" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" Clicked="OnFavouriteResortsClicked" />
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
                     <Label Text="Локація" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />

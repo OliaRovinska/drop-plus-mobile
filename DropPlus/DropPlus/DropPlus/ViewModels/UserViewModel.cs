@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using DropPlus.Enums;
 
 namespace DropPlus.ViewModels
 {
     public class UserViewModel : BaseViewModel
     {
+        public UserViewModel()
+        {
+            FavouriteResorts = new ObservableCollection<ResortViewModel>();
+        }
+
         private string _firstName;
         public string FirstName
         {
@@ -118,5 +124,16 @@ namespace DropPlus.ViewModels
         }
 
         public string DayHours => WakeUpHour.ToString(@"hh\:mm") + " - " + SleepHour.ToString(@"hh\:mm");
+
+        private ObservableCollection<ResortViewModel> _favouriteResorts;
+        public ObservableCollection<ResortViewModel> FavouriteResorts
+        {
+            get => _favouriteResorts;
+            set
+            {
+                _favouriteResorts = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

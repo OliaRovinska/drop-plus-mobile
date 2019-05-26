@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DropPlus.Enums;
 
 namespace DropPlus.Models
@@ -15,5 +16,6 @@ namespace DropPlus.Models
         public int Weight { get; set; }
         public TimeSpan WakeUpHour { get; set; }
         public TimeSpan SleepHour { get; set; }
+        public List<ResortModel> FavouriteResorts { get; set; }
     }
 }

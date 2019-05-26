@@ -25,7 +25,7 @@ namespace DropPlus.ViewModels
                 {
                     Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
                     Location = "Синевир",
-                    IsFavourite = true,
+                    IsFavourite = false,
                     Description = "Солотвино це лікувально – оздоровчий курорт.",
                     Seasons = new ObservableCollection<SeasonEnum>() {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring},
                     Reviews = new ObservableCollection<ReviewViewModel>()

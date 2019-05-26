@@ -84,6 +84,14 @@ namespace DropPlus.ViewModels
         private void UpdateFavourite()
         {
             IsFavourite = !IsFavourite;
+            if (IsFavourite)
+            {
+                App.User.FavouriteResorts.Add(this);
+            }
+            else
+            {
+                App.User.FavouriteResorts.Remove(this);
+            }
         }
     }
 }
