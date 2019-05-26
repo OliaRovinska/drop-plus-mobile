@@ -1,13 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="DropPlus.Views.ProfilePage"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="stackLayoutThickness" Left="40" Right="40" Top="5" Bottom="5" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Image Source="pencil.png" HorizontalOptions="EndAndExpand" WidthRequest="16" HeightRequest="16" />
+                <controls:CircleImage Source="{Binding Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
+                <Label Text="{Binding UserName}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+
+                <Button Margin="0, 5" Text="Мої вподобані курорти" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" />
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Локація" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding Location}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Вік" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding Age}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Стать" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding Sex}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Вага" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding Weight}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Зріст" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding Height}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
+                    <Label Text="Час дня" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding DayHours}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

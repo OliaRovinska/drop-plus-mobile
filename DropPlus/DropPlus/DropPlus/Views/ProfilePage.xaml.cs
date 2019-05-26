@@ -15,6 +15,8 @@ namespace DropPlus.Views
 		public ProfilePage ()
 		{
 			InitializeComponent ();
-		}
-	}
+
+            BindingContext = App.User;
+        }
+    }
 }

@@ -29,9 +29,8 @@ namespace DropPlus.Views
         private void Button_OnClicked(object sender, EventArgs e)
         {
             var review = (ReviewViewModel)BindingContext;
-            // TODO: add real user
             review.Date = DateTime.Now;
-            review.User = new UserViewModel() { FirstName = "Андрій", LastName = "Луков", Location = "Львів", Photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKF_EZy87xSafJFWdWN9Ysgsp25M94xP_FJLAn24KsmZEvOmg5xQ" };
+            review.User = App.User;
             OnAddReview?.Invoke(review);
             Navigation.PopAsync();
         }
