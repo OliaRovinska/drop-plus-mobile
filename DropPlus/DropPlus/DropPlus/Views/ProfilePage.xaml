@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="5">
-                <Image Source="pencil.png" HorizontalOptions="EndAndExpand" WidthRequest="16" HeightRequest="16" />
+                <Image Source="pencil.png" HorizontalOptions="EndAndExpand" WidthRequest="16" HeightRequest="16" x:Name="EditProfileImage"/>
                 <controls:CircleImage Source="{Binding Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
                 <Label Text="{Binding UserName}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
 

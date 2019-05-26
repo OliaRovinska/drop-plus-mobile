@@ -1,6 +1,7 @@
 ﻿using System;
+using DropPlus.AutoMapper;
 using DropPlus.Enums;
-using DropPlus.ViewModels;
+using DropPlus.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DropPlus.Views;
@@ -10,13 +11,15 @@ namespace DropPlus
 {
     public partial class App : Application
     {
-        public static UserViewModel User;
+        public static UserModel User;
 
         public App()
         {
             InitializeComponent();
 
-            User = new UserViewModel()
+            Mapping.Initialize();
+
+            User = new UserModel()
             {
                 FirstName = "Ольга",
                 LastName = "Ровінська",

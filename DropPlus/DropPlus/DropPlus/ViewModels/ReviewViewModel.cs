@@ -4,6 +4,8 @@ namespace DropPlus.ViewModels
 {
     public class ReviewViewModel : BaseViewModel
     {
+        public int Id { get; set; }
+
         private UserViewModel _user;
         public UserViewModel User
         {

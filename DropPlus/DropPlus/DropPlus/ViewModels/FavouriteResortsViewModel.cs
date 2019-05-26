@@ -4,6 +4,15 @@ namespace DropPlus.ViewModels
 {
     public class FavouriteResortsViewModel : BaseViewModel
     {
-        public ObservableCollection<ResortViewModel> Resorts { get; set; }
+        private ObservableCollection<ResortViewModel> _resorts;
+        public ObservableCollection<ResortViewModel> Resorts
+        {
+            get => _resorts;
+            set
+            {
+                _resorts = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

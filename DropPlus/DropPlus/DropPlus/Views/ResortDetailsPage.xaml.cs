@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using DropPlus.Models;
+using DropPlus.Services;
 using DropPlus.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -36,10 +39,17 @@ namespace DropPlus.Views
             Navigation.PushAsync(addReviewPage);
         }
 
-        private void OnAddReview(ReviewViewModel review)
+        private void OnAddReview(ReviewViewModel reviewViewModel)
         {
-            var resort = (ResortViewModel)BindingContext;
+            // add to view model
+            var resortViewModel = (ResortViewModel) BindingContext;
+            resortViewModel.Reviews.Add(reviewViewModel);
+
+            // add to review
+            var review = Mapper.Map<ReviewModel>(reviewViewModel);
+            var resort = ResortsService.Get(resortViewModel.Id);
             resort.Reviews.Add(review);
+            
         }
     }
 }

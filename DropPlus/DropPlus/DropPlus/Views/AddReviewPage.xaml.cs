@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using DropPlus.Models;
 using DropPlus.ViewModels;
 using LaavorRatingSwap;
 using Xamarin.Forms;
@@ -21,16 +23,16 @@ namespace DropPlus.Views
 			InitializeComponent ();
 		}
 
-        private void RatingImage_OnOnSelect(object sender, EventArgs e)
+        private void RatingImage_OnSelect(object sender, EventArgs e)
         {
             ((ReviewViewModel) BindingContext).Rating = ((RatingImage)sender).Value;
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        private void OnAddReviewClick(object sender, EventArgs e)
         {
             var review = (ReviewViewModel)BindingContext;
             review.Date = DateTime.Now;
-            review.User = App.User;
+            review.User = Mapper.Map<UserViewModel>(App.User);
             OnAddReview?.Invoke(review);
             Navigation.PopAsync();
         }

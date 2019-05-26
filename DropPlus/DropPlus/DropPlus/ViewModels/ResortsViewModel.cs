@@ -5,49 +5,15 @@ namespace DropPlus.ViewModels
 {
     public class ResortsViewModel : BaseViewModel
     {
-        public ObservableCollection<ResortViewModel> Resorts { get; set; }
-
-        public ResortsViewModel()
+        private ObservableCollection<ResortViewModel> _resorts;
+        public ObservableCollection<ResortViewModel> Resorts
         {
-            Resorts = new ObservableCollection<ResortViewModel>()
+            get => _resorts;
+            set
             {
-                new ResortViewModel()
-                {
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/d/df/Town_and_Country_fh000023.jpg",
-                    Location = "Солотвино",
-                    IsFavourite = false
-                },
-                new ResortViewModel()
-                {
-                    Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
-                    Location = "Синевир",
-                    IsFavourite = false
-                },
-                new ResortViewModel()
-                {
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/d/df/Town_and_Country_fh000023.jpg",
-                    Location = "Солотвино",
-                    IsFavourite = false
-                },
-                new ResortViewModel()
-                {
-                    Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
-                    Location = "Синевир",
-                    IsFavourite = false
-                },
-                new ResortViewModel()
-                {
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/d/df/Town_and_Country_fh000023.jpg",
-                    Location = "Солотвино",
-                    IsFavourite = false
-                },
-                new ResortViewModel()
-                {
-                    Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
-                    Location = "Синевир",
-                    IsFavourite = false
-                }
-            };
+                _resorts = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

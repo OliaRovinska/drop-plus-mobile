@@ -6,10 +6,7 @@ namespace DropPlus.ViewModels
 {
     public class UserViewModel : BaseViewModel
     {
-        public UserViewModel()
-        {
-            FavouriteResorts = new ObservableCollection<ResortViewModel>();
-        }
+        public int Id { get; set; }
 
         private string _firstName;
         public string FirstName
@@ -111,6 +108,8 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public string[] Sexes => Enum.GetNames(typeof(SexEnum));
 
         private TimeSpan _sleepHour;
         public TimeSpan SleepHour

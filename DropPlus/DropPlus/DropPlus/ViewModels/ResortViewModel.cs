@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using AutoMapper;
 using DropPlus.Enums;
+using DropPlus.Models;
 using Xamarin.Forms;
 
 namespace DropPlus.ViewModels
@@ -9,10 +11,10 @@ namespace DropPlus.ViewModels
     {
         public ResortViewModel()
         {
-            Reviews = new ObservableCollection<ReviewViewModel>();
-
             UpdateFavouriteCommand = new Command(UpdateFavourite);
         }
+
+        public int Id { get; set; }
 
         private string _image;
         public string Image
@@ -36,13 +38,15 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private bool _isFavourite;
-        public bool IsFavourite
+        public bool IsFavourite => App.User.FavouriteResorts.Find(resort => resort.Id == Id) != null;
+
+        private bool _isSponsored;
+        public bool IsSponsored
         {
-            get => _isFavourite;
+            get => _isSponsored;
             set
             {
-                _isFavourite = value;
+                _isSponsored = value;
                 OnPropertyChanged();
             }
         }
@@ -83,15 +87,16 @@ namespace DropPlus.ViewModels
         public ICommand UpdateFavouriteCommand { get; }
         private void UpdateFavourite()
         {
-            IsFavourite = !IsFavourite;
             if (IsFavourite)
             {
-                App.User.FavouriteResorts.Add(this);
+                var resort = App.User.FavouriteResorts.Find(r => r.Id == Id);
+                App.User.FavouriteResorts.Remove(resort);
             }
             else
             {
-                App.User.FavouriteResorts.Remove(this);
+                App.User.FavouriteResorts.Add(Mapper.Map<ResortModel>(this));
             }
+            OnPropertyChanged($"IsFavourite");
         }
     }
 }
