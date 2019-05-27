@@ -48,8 +48,7 @@ namespace DropPlus.Views
             // add to review
             var review = Mapper.Map<ReviewModel>(reviewViewModel);
             var resort = ResortsService.Get(resortViewModel.Id);
-            resort.Reviews.Add(review);
-            
+            resort.Reviews.Add(review); 
         }
     }
 }

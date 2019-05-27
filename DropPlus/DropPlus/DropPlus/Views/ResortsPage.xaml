@@ -6,6 +6,12 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
+            <Frame BorderColor="Black" Margin="5, 5, 5, 0" x:Name="FilterFrame">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Використати фільтр" TextColor="{StaticResource TextColor}"/>
+                    <Image Source="add.png" HeightRequest="24" WidthRequest="24"/>
+                </StackLayout>
+            </Frame>
             <controls:ResortListView />
         </StackLayout>
     </ContentPage.Content>

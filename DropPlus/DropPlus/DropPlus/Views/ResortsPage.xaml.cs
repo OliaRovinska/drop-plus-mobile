@@ -23,14 +23,30 @@ namespace DropPlus.Views
             {
                 Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetAll())
             };
-	    }
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += OnResortsFilterPage;
+            FilterFrame.GestureRecognizers.Add(tapGestureRecognizer);
+        }
 
         protected override void OnAppearing()
         {
-            BindingContext = new ResortsViewModel()
-            {
-                Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetAll())
-            };
+            var context = (ResortsViewModel)BindingContext;
+            var filter = ResortsService.GetFilter();
+            context.Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(filter != null ? ResortsService.ApplyFilter() : ResortsService.GetAll());
+        }
+
+        private void OnResortsFilterPage(object sender, EventArgs e)
+        {
+            var filter = ResortsService.GetFilter();
+            var resortsFilterPage = filter != null ? new ResortsFilterPage() { BindingContext = filter } : new ResortsFilterPage() {BindingContext = new ResortsFilterViewModel()};
+            resortsFilterPage.OnApplyFilter += OnApplyFilter;
+            Navigation.PushAsync(resortsFilterPage);
+        }
+
+        private void OnApplyFilter(ResortsFilterViewModel filter)
+        {
+            ResortsService.SetFilter(filter);
         }
     }
 }

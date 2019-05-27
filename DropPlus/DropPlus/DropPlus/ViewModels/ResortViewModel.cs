@@ -51,6 +51,17 @@ namespace DropPlus.ViewModels
             }
         }
 
+        private bool _isSanatorium;
+        public bool IsSanatorium
+        {
+            get => _isSanatorium;
+            set
+            {
+                _isSanatorium = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _description;
         public string Description
         {
@@ -80,6 +91,17 @@ namespace DropPlus.ViewModels
             set
             {
                 _reviews = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<DiseaseViewModel> _diseases;
+        public ObservableCollection<DiseaseViewModel> Diseases
+        {
+            get => _diseases;
+            set
+            {
+                _diseases = value;
                 OnPropertyChanged();
             }
         }

@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using AutoMapper;
 using DropPlus.Enums;
 using DropPlus.Models;
+using DropPlus.ViewModels;
 
 namespace DropPlus.Services
 {
     public static class ResortsService
     {
-        public static List<ResortModel> Resorts { get; set; }
+        private static List<ResortModel> Resorts { get; set; }
+        private static ResortsFilterViewModel Filter { get; set; }
 
         static ResortsService()
         {
@@ -21,6 +25,10 @@ namespace DropPlus.Services
                     Image = "https://upload.wikimedia.org/wikipedia/commons/d/df/Town_and_Country_fh000023.jpg",
                     Location = "Солотвино",
                     IsSponsored = true,
+                    Diseases = new List<DiseaseModel>()
+                    {
+                        new DiseaseModel() { Name = "Печія"}
+                    },
                     Description = "Солотвино це лікувально – оздоровчий курорт. З 1968 тут практикують лікування астми та інших захворювань дихальних шляхів в спеціальних палатах, розташованих на глибині понад 200м. В 1976 р. було побудувано Українську республіканську алергологічну лікарню, яка успішно працює до тепер. Щорічно влітку до Солотвино приїзджає багато туристів, щоб полежати в солених озерах, куди ропа(насичена солями вода) потрапляє безпосередньо з шахти. Саме полежати, тому що вода саме виштовхує тіло на поверхню, що створює ефект невагомості. Солені озера Солотвино містять лікувальну ропу та сульфідну грязь. Навколо озер розташовані пляжі, кафе, бази відпочинку",
                     Seasons = new List<SeasonEnum> {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring}
                 },
@@ -31,6 +39,12 @@ namespace DropPlus.Services
                     Location = "Синевир",
                     IsSponsored = true,
                     Description = "Солотвино це лікувально – оздоровчий курорт.",
+                    Diseases = new List<DiseaseModel>()
+                    {
+                        new DiseaseModel() { Name = "Грип"},
+                        new DiseaseModel() { Name = "Кашель"},
+                        new DiseaseModel() { Name = "Нежить"}
+                    },
                     Seasons = new List<SeasonEnum>() {SeasonEnum.Autumn, SeasonEnum.Winter, SeasonEnum.Summer, SeasonEnum.Spring},
                     Reviews = new List<ReviewModel>()
                     {
@@ -93,6 +107,43 @@ namespace DropPlus.Services
         public static ResortModel Get(int id)
         {
             return Resorts.First(resort => resort.Id == id);
+        }
+
+        public static ResortsFilterViewModel GetFilter()
+        {
+            return Filter;
+        }
+
+        public static void SetFilter(ResortsFilterViewModel filter)
+        {
+            Filter = filter;
+        }
+
+        public static List<ResortModel> ApplyFilter()
+        {
+            var result = Resorts.Where(resort => resort.Rating >= Filter.MinRating && resort.Rating <= Filter.MaxRating);
+            if (!string.IsNullOrEmpty(Filter.Location))
+            {
+                result = result.Where(resort => resort.Location == Filter.Location);
+            }
+
+            var diseases = Mapper.Map<List<DiseaseModel>>(Filter.Diseases.Where(disease => disease.IsChecked));
+            if (diseases.Any())
+            {
+                result = result.Where(resort => resort.Diseases.Select(disease => disease.Name).Intersect(diseases.Select(disease => disease.Name)).Any());
+            }
+
+            if (Filter.IsSanatorium)
+            {
+                result = result.Where(resort => resort.IsSanatorium);
+            }
+
+            if (Filter.Season != SeasonEnum.Any)
+            {
+                result = result.Where(resort => resort.Seasons.Contains(Filter.Season));
+            }
+
+            return result.ToList();
         }
     }
 }

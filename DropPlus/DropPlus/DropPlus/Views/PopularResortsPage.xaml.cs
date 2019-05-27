@@ -27,10 +27,8 @@ namespace DropPlus.Views
 
         protected override void OnAppearing()
         {
-            BindingContext = new ResortsViewModel()
-            {
-                Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetSponsored())
-            };
+            var context = (PopularResortsViewModel)BindingContext;
+            context.Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetSponsored());
         }
     }
 }

@@ -18,6 +18,9 @@ namespace DropPlus.AutoMapper
 
                 config.CreateMap<UserModel, UserViewModel>();
                 config.CreateMap<UserViewModel, UserModel>();
+
+                config.CreateMap<DiseaseModel, DiseaseViewModel>();
+                config.CreateMap<DiseaseViewModel, DiseaseModel>();
             });
         }
     }
