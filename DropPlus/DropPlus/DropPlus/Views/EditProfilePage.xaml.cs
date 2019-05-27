@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using DropPlus.Interfaces;
 using DropPlus.Models;
 using DropPlus.ViewModels;
 using Xamarin.Forms;
@@ -26,9 +28,20 @@ namespace DropPlus.Views
             Navigation.PopAsync();
         }
 
-        protected override void OnDisappearing()
+        private async void OnUploadPhotoClick(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            var button = (Button)sender;
+            button.IsEnabled = false;
+            var picturePicker = DependencyService.Get<IPicturePicker>();
+            Stream stream = await picturePicker.GetImageStreamAsync();
+
+            if (stream != null)
+            {
+                // save to server!!!
+                UserImage.Source = ImageSource.FromStream(() => stream);
+            }
+
+            button.IsEnabled = true;
         }
     }
 }

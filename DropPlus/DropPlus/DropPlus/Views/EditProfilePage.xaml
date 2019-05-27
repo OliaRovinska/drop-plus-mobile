@@ -16,9 +16,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10, 10, 10, 10">
-                <controls:CircleImage Source="{Binding Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
+                <controls:CircleImage x:Name="UserImage" Source="{Binding Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
 
-                <Button Margin="0, 0, 0, 10" Padding="20, 0" Text="Змінити фото" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" />
+                <Button Clicked="OnUploadPhotoClick" Margin="0, 0, 0, 10" Padding="20, 0" Text="Змінити фото" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" />
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
                     <Label Text="Ім'я" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
