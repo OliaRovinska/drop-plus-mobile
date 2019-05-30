@@ -51,7 +51,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout VerticalOptions="Center" Padding="10">
+                                <StackLayout Padding="10">
                                     <StackLayout Orientation="Horizontal">
                                         <controls:CircleImage Source="{Binding Path=User.Photo}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" />
                                         <StackLayout Margin="10, 0, 0, 0" Spacing="3">

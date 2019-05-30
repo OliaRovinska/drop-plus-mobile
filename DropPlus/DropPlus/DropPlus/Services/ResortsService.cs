@@ -114,6 +114,12 @@ namespace DropPlus.Services
             return Filter;
         }
 
+        public static List<ResortModel> GetRecommended(FindTourViewModel model)
+        {
+            // TODO: add some logic
+            return Resorts;
+        }
+
         public static void SetFilter(ResortsFilterViewModel filter)
         {
             Filter = filter;

@@ -23,12 +23,23 @@ namespace DropPlus.Views
             {
                 Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetSponsored())
             };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += OnFindTourPage;
+            FindTourFrame.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         protected override void OnAppearing()
         {
             var context = (PopularResortsViewModel)BindingContext;
             context.Resorts = Mapper.Map<ObservableCollection<ResortViewModel>>(ResortsService.GetSponsored());
+        }
+
+        private void OnFindTourPage(object sender, EventArgs e)
+        {
+            var model = new FindTourViewModel();
+            var findTourPage = new FindTourPage1() {BindingContext = model};
+            Navigation.PushAsync(findTourPage);
         }
     }
 }

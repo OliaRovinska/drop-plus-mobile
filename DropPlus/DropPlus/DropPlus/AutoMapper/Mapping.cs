@@ -21,6 +21,12 @@ namespace DropPlus.AutoMapper
 
                 config.CreateMap<DiseaseModel, DiseaseViewModel>();
                 config.CreateMap<DiseaseViewModel, DiseaseModel>();
+
+                config.CreateMap<TourAimModel, TourAimViewModel>();
+                config.CreateMap<TourAimViewModel, TourAimModel>();
+
+                config.CreateMap<OrganModel, OrganViewModel>();
+                config.CreateMap<OrganViewModel, OrganModel>();
             });
         }
     }

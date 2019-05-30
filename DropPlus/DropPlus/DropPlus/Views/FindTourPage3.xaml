@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DropPlus.Views.FindTourPage3"
+             Title="Підібрати тур">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Оберіть бажаний час поїздки" Margin="0, 0, 0, 15" FontSize="Large" TextColor="{StaticResource TextColor}" HorizontalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Від" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                <DatePicker Date="{Binding StartDate}" TextColor="{StaticResource TextColor}" FontSize="Small" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="До" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                <DatePicker Date="{Binding EndDate}" TextColor="{StaticResource TextColor}" FontSize="Small" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0, 10">
+                <Switch IsToggled="{Binding IsDistanceImportant}" />
+                <Label Text="Відстань важлива" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" />
+            </StackLayout>
+
+            <Grid  VerticalOptions="EndAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Children>
+                    <Button Text="Відмінити" Grid.Column="0" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Fill" Clicked="OnCancel"/>
+                    <Button Text="Знайти" Grid.Column="1" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Fill" Clicked="OnSave"/>
+                </Grid.Children>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
