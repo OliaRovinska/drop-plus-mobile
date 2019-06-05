@@ -23,5 +23,6 @@ namespace DropPlus.Models
         public TimeSpan WakeUpHour { get; set; }
         public TimeSpan SleepHour { get; set; }
         public List<ResortModel> FavouriteResorts { get; set; }
+        public List<TrackedDayModel> TrackedDays { get; set; }
     }
 }

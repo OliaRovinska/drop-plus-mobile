@@ -134,5 +134,16 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private ObservableCollection<TrackedDayViewModel> _trackedDays;
+        public ObservableCollection<TrackedDayViewModel> TrackedDays
+        {
+            get => _trackedDays;
+            set
+            {
+                _trackedDays = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

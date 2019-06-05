@@ -27,6 +27,15 @@ namespace DropPlus.AutoMapper
 
                 config.CreateMap<OrganModel, OrganViewModel>();
                 config.CreateMap<OrganViewModel, OrganModel>();
+
+                config.CreateMap<DrinkTypeModel, DrinkTypeViewModel>();
+                config.CreateMap<DrinkTypeViewModel, DrinkTypeModel>();
+
+                config.CreateMap<TrackedDayModel, TrackedDayViewModel>();
+                config.CreateMap<TrackedDayViewModel, TrackedDayModel>();
+
+                config.CreateMap<TrackedDayRecordModel, TrackedDayRecordViewModel>();
+                config.CreateMap<TrackedDayRecordViewModel, TrackedDayRecordModel>();
             });
         }
     }
