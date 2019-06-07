@@ -24,5 +24,7 @@ namespace DropPlus.Models
         public TimeSpan SleepHour { get; set; }
         public List<ResortModel> FavouriteResorts { get; set; }
         public List<TrackedDayModel> TrackedDays { get; set; }
+
+        public int Goal => Weight * 30;
     }
 }

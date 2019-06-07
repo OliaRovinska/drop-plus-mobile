@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DropPlus.Models;
 
 namespace DropPlus.ViewModels
 {
@@ -29,8 +28,8 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private ObservableCollection<TrackedDayRecordModel> _records;
-        public ObservableCollection<TrackedDayRecordModel> Records
+        private ObservableCollection<TrackedDayRecordViewModel> _records;
+        public ObservableCollection<TrackedDayRecordViewModel> Records
         {
             get => _records;
             set

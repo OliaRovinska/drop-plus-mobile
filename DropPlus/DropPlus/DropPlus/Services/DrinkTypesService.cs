@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DropPlus.Models;
 
 namespace DropPlus.Services
@@ -23,6 +24,11 @@ namespace DropPlus.Services
         public static List<DrinkTypeModel> GetAll()
         {
             return DrinkTypes;
+        }
+
+        public static DrinkTypeModel Get(string name)
+        {
+            return DrinkTypes.FirstOrDefault(drinkType => drinkType.Name == name);
         }
     }
 }
