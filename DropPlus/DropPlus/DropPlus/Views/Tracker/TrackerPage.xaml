@@ -43,7 +43,7 @@
                         <Button Text="+" Command="{Binding IncreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50"/>
                     </StackLayout>
                     <Button Text="Випити воду" Command="{Binding AddWaterRecordCommand}" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Micro" HeightRequest="40" />
-                    <Button Text="Випити інший напій" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Micro" HeightRequest="40" />
+                    <Button Text="Випити інший напій" Clicked="OnAddRecordClick" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Micro" HeightRequest="40" />
                 </StackLayout>
             </Grid.Children>
         </Grid>

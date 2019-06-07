@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DropPlus.Enums;
 
 namespace DropPlus.Models
@@ -24,6 +25,12 @@ namespace DropPlus.Models
         public TimeSpan SleepHour { get; set; }
         public List<ResortModel> FavouriteResorts { get; set; }
         public List<TrackedDayModel> TrackedDays { get; set; }
+
+        public TrackedDayModel TrackedToday()
+        {
+            return TrackedDays.FirstOrDefault(trackedDay =>
+                trackedDay.Date.ToString("d") == DateTime.Now.ToString("d"));
+        }
 
         public int Goal => Weight * 30;
     }

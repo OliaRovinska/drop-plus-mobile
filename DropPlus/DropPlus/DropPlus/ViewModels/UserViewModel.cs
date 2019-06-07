@@ -284,13 +284,14 @@ namespace DropPlus.ViewModels
         public ICommand AddWaterRecordCommand { get; }
         private void AddWaterRecord()
         {
-            var trackedToday = TrackedToday();
-            // TODO: add to service
-            trackedToday.Records.Add(new TrackedDayRecordViewModel()
+            var recordViewModel = new TrackedDayRecordViewModel()
             {
                 DrinkType = Mapper.Map<DrinkTypeViewModel>(DrinkTypesService.Get("вода")),
                 Volume = PortionSize
-            });
+            };
+            TrackerService.AddRecord(Mapper.Map<TrackedDayRecordModel>(recordViewModel));
+            var trackedToday = TrackedToday();
+            trackedToday.Records.Add(recordViewModel);
             OnPropertyChanged("DrunkToday");
             OnPropertyChanged("DrunkTodayString");
             OnPropertyChanged("DrunkTodayInPercentage");

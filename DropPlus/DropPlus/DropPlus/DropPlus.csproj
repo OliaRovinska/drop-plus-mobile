@@ -13,6 +13,7 @@
     <PackageReference Include="AutoMapper" Version="8.1.0" />
     <PackageReference Include="LiveXAML" Version="2.1.72" />
     <PackageReference Include="RatingAndSwap" Version="4.4.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />  
   </ItemGroup>
@@ -32,6 +33,9 @@
     </Compile>
     <Compile Update="Views\ResortsPage.xaml.cs">
       <DependentUpon>ResortsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tracker\AddTrackerRecordPopup.xaml.cs">
+      <DependentUpon>AddTrackerRecordPopup.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -73,6 +77,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ResortsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tracker\AddTrackerRecordPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Tracker\TrackerPage.xaml">

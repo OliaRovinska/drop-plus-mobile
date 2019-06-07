@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="DropPlus.Views.Tracker.AddTrackerRecordPopup">
+    <StackLayout VerticalOptions="EndAndExpand" Margin="20, 40" BackgroundColor="White" Padding="15">
+        <Image Source="close.png" HeightRequest="18" WidthRequest="18" HorizontalOptions="End" VerticalOptions="Start" x:Name="CloseImage"/>
+        <Label Text="Виберіть кількість рідини:" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="-" Command="{Binding DecreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50" />
+            <Label VerticalTextAlignment="Center" Text="{Binding Volume}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalTextAlignment="Center" />
+            <Button Text="+" Command="{Binding IncreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50"/>
+        </StackLayout>
+        <Label Text="Виберіть тип рідини:" TextColor="{StaticResource TextColor}" FontSize="Medium" Margin="0, 20, 0, 0"/>
+        <Picker ItemsSource="{Binding DrinkTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding DrinkType}" TextColor="{StaticResource TextColor}" FontSize="Medium" />
+        <Button Text="Додати" TextColor="{StaticResource TextColor}" FontSize="Small" Clicked="OnAddRecordClick"/>
+    </StackLayout>
+</pages:PopupPage>

@@ -7,6 +7,7 @@ using DropPlus.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DropPlus.Views;
+using Rg.Plugins.Popup.Pages;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DropPlus
