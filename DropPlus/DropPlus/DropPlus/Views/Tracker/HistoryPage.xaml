@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             xmlns:converters="clr-namespace:DropPlus.Converters"
+             x:Class="DropPlus.Views.Tracker.HistoryPage"
+             x:Name="TrackedDayHistoryPage"
+             Title="Історія">
+    <ContentPage.Resources>
+        <converters:DateTimeConverter x:Key="DateTimeConverter"/>
+        <converters:TimeSpanConverter x:Key="TimeSpanConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Padding="10, 0, 10, 0" VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.Children>
+                <controls:Calendar Grid.Column="0" Grid.Row="0" MultiSelectDates="False" DatesFontSize="12" SelectedFontSize="14" SelectedBorderWidth="2" WeekdaysShow="False" WeekdaysFormat="ddd" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <Label Text="{Binding SelectedDate, Converter={StaticResource DateTimeConverter}}" HorizontalOptions="Start" TextColor="{StaticResource TextColor}" FontSize="Small" />
+                    <Label Text="{Binding SelectedTrackedDay.Drunk, StringFormat='Виконано: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Small"/>
+                </StackLayout>
+                <ListView Grid.Row="2" ItemsSource="{Binding SelectedTrackedDay.Records}" RowHeight="25" ItemSelected="ListView_OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="0, 5">
+                                    <Label Text="{Binding Volume, StringFormat='{0} мл'}" TextColor="{StaticResource TextColor}"/>
+                                    <Label Text="{Binding DrinkType.Name}" TextColor="{StaticResource TextColor}"/>
+                                    <Label Text="{Binding Time, Converter={StaticResource TimeSpanConverter}}" TextColor="{StaticResource TextColor}" HorizontalOptions="CenterAndExpand" />
+                                    <Image Source="edit.png" WidthRequest="18" HeightRequest="18">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding EditRecordCommand, Source={x:Reference TrackedDayHistoryPage}}" CommandParameter="{Binding Id}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="remove.png" WidthRequest="18" HeightRequest="18">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding RemoveRecordCommand, Source={x:Reference TrackedDayHistoryPage}}" CommandParameter="{Binding Id}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Row="3" Clicked="OnAddRecordClick"  Text="Додати" FontSize="Small" Padding="0" WidthRequest="200" HorizontalOptions="Center" HeightRequest="35" TextColor="{StaticResource TextColor}" />
+            </Grid.Children>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

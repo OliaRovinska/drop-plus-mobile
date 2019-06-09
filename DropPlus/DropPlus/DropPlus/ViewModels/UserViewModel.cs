@@ -19,6 +19,8 @@ namespace DropPlus.ViewModels
             AddWaterRecordCommand = new Command(AddWaterRecord);
 
             PortionSize = 200;
+
+            //SelectedDate = DateTime.Now.Date;
         }
 
         public int Id { get; set; }
@@ -162,6 +164,22 @@ namespace DropPlus.ViewModels
             }
         }
 
+        private DateTime _selectedDate;
+        public DateTime SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                OnPropertyChanged();
+                var a = SelectedTrackedDay;
+                OnPropertyChanged("SelectedTrackedDay");
+            }
+        }
+
+        public TrackedDayViewModel SelectedTrackedDay => TrackedDays.FirstOrDefault(trackedDay =>
+            trackedDay.Date.ToString("d") == SelectedDate.ToString("d"));
+
         public TrackedDayViewModel TrackedToday()
         {
             return TrackedDays.FirstOrDefault(trackedDay =>
@@ -210,7 +228,8 @@ namespace DropPlus.ViewModels
                 var trackedToday = TrackedToday();
                 if (trackedToday == null)
                 {
-                    trackedToday = new TrackedDayViewModel();
+                    var result = TrackerService.AddTrackedDay(App.User.Goal);
+                    trackedToday = Mapper.Map<TrackedDayViewModel>(result);
                     TrackedDays.Add(trackedToday);
                     return 0;
                 }
@@ -249,8 +268,8 @@ namespace DropPlus.ViewModels
                 var trackedToday = TrackedToday();
                 if (trackedToday == null)
                 {
-                    trackedToday = new TrackedDayViewModel();
-                    // TODO: Add to the service
+                    var result = TrackerService.AddTrackedDay(App.User.Goal);
+                    trackedToday = Mapper.Map<TrackedDayViewModel>(result);
                     TrackedDays.Add(trackedToday);
                     return 0;
                 }
@@ -286,12 +305,12 @@ namespace DropPlus.ViewModels
         {
             var recordViewModel = new TrackedDayRecordViewModel()
             {
-                DrinkType = Mapper.Map<DrinkTypeViewModel>(DrinkTypesService.Get("вода")),
+                DrinkType = Mapper.Map<DrinkTypeViewModel>(DrinkTypesService.Get("Вода")),
                 Volume = PortionSize
             };
-            TrackerService.AddRecord(Mapper.Map<TrackedDayRecordModel>(recordViewModel));
+            var newRecord = Mapper.Map<TrackedDayRecordViewModel>(TrackerService.AddRecordToday(Mapper.Map<TrackedDayRecordModel>(recordViewModel)));
             var trackedToday = TrackedToday();
-            trackedToday.Records.Add(recordViewModel);
+            trackedToday.Records.Add(newRecord);
             OnPropertyChanged("DrunkToday");
             OnPropertyChanged("DrunkTodayString");
             OnPropertyChanged("DrunkTodayInPercentage");

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using AutoMapper;
 using DropPlus.Models;
 using DropPlus.Services;
@@ -22,6 +23,11 @@ namespace DropPlus.Views.Tracker
 
             BindingContext = Mapper.Map<UserViewModel>(App.User);
         }
+        private void OnHistoryPage(object sender, EventArgs e)
+        {
+            var page = new HistoryPage() { BindingContext = BindingContext };
+            Navigation.PushAsync(page);
+        }
 
         protected override void OnAppearing()
         {
@@ -37,7 +43,7 @@ namespace DropPlus.Views.Tracker
 
         private void OnAddRecord(TrackedDayRecordViewModel recordViewModel)
         {
-            TrackerService.AddRecord(Mapper.Map<TrackedDayRecordModel>(recordViewModel));
+            TrackerService.AddRecordToday(Mapper.Map<TrackedDayRecordModel>(recordViewModel));
             // add to view model
             var user = (UserViewModel)BindingContext;
             var trackedToday = user.TrackedToday();

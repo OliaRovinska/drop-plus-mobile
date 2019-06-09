@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DropPlus.Views.Tracker.TrackerPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             x:Name="TrackerPagekh">
     <ContentPage.Content>
-        <Grid>
+        <Grid RowSpacing="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
@@ -12,12 +13,19 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.Children>
-                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 20, 30, 0">
+                <Image Grid.Row="0" Grid.Column="2" Margin="10, 10, 10, 0" Source="history.png" HeightRequest="18" WidthRequest="18" HorizontalOptions="End" VerticalOptions="Start" x:Name="HistoryImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHistoryPage"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0, 45, 0">
                     <StackLayout Orientation="Vertical" Spacing="0">
                         <Label Text="Ціль" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalTextAlignment="Center"/>
                         <Label Text="{Binding Goal, StringFormat='{0} мл'}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalTextAlignment="Center" />
@@ -28,7 +36,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <AbsoluteLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0">
+                <AbsoluteLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0">
                     <Image Source="circle.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
                     <Image Source="good.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0.4, 0.32, 16, 16" AbsoluteLayout.LayoutFlags="PositionProportional" />
                     <Label Text="{Binding DrunkTodayString}" TextColor="{StaticResource TextColor}" FontSize="Medium" AbsoluteLayout.LayoutBounds="0.6, 0.3, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
@@ -36,7 +44,7 @@
                     <Label Text="{Binding DrunkTodayInPercentage, StringFormat='{0}%'}" TextColor="{StaticResource TextColor}" FontSize="Small" AbsoluteLayout.LayoutBounds="0.5, 0.7, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
                 </AbsoluteLayout>
 
-                <StackLayout Grid.Row="2" HorizontalOptions="Center" Spacing="0" Grid.Column="1">
+                <StackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="0" Grid.Column="1">
                     <StackLayout Orientation="Horizontal">
                         <Button Text="-" Command="{Binding DecreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50" />
                         <Label VerticalTextAlignment="Center" Text="{Binding PortionSize}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalTextAlignment="Center" />

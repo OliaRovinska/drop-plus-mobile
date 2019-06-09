@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using DropPlus.Enums;
+using DropPlus.Services;
+using DropPlus.ViewModels;
 
 namespace DropPlus.Models
 {
@@ -28,8 +31,20 @@ namespace DropPlus.Models
 
         public TrackedDayModel TrackedToday()
         {
-            return TrackedDays.FirstOrDefault(trackedDay =>
-                trackedDay.Date.ToString("d") == DateTime.Now.ToString("d"));
+            return TrackedDay(DateTime.Now);
+        }
+
+        public TrackedDayModel TrackedDay(DateTime date)
+        {
+            var result = TrackedDays.FirstOrDefault(trackedDay =>
+                trackedDay.Date.ToString("d") == date.ToString("d"));
+
+            if (result == null)
+            {
+                result = TrackerService.AddTrackedDay(App.User.Goal, date);
+            }
+
+            return result;
         }
 
         public int Goal => Weight * 30;

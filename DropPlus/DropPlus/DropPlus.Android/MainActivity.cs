@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -28,6 +29,9 @@ namespace DropPlus.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("uk-UA");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk-UA");
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

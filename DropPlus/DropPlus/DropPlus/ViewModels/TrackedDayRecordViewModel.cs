@@ -15,8 +15,21 @@ namespace DropPlus.ViewModels
             DrinkTypes = Mapper.Map<ObservableCollection<DrinkTypeViewModel>>(DrinkTypesService.GetAll());
             DrinkType = DrinkTypes.FirstOrDefault();
 
+            Time = DateTime.Now.TimeOfDay;
+
             DecreasePortionCommand = new Command(DecreasePortion);
             IncreasePortionCommand = new Command(IncreasePortion);
+        }
+
+        private int _id;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+                OnPropertyChanged();
+            }
         }
 
         private DrinkTypeViewModel _drinkType;

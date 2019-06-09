@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DropPlus.ViewModels
 {
@@ -38,5 +39,7 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public int Drunk => Records.Sum(record => record.Volume);
     }
 }
