@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DropPlus.Views.Authentication.SignUpPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightSkyBlue">
+            <Label Text="Sign Up" FontSize="36" Margin="5, 10, 0, 15" TextColor="White" HorizontalOptions="StartAndExpand" />
+            <Frame CornerRadius="40" BackgroundColor="White" Padding="10" VerticalOptions="Fill">
+                <StackLayout Spacing="3">
+                    <Label Text="Hello" FontSize="Large" Margin="5, 5, 0, 0" x:Name="HelloLabel"/>
+                    <Label Text="Create an account to continue" FontSize="Micro" Margin="5, 0, 0, 0"/>
+                    <Label x:Name="Error" IsVisible="False" FontSize="Micro" TextColor="Red"/>
+                    <Entry Placeholder="Ім'я" Text="{Binding FirstName}" FontSize="Small" FontAttributes="300" />
+                    <Entry Placeholder="Прізвище" Text="{Binding LastName}" FontSize="Small" FontAttributes="300" />
+                    <Entry Placeholder="Email address" Text="{Binding Email}" FontSize="Small" FontAttributes="300" />
+                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" FontSize="Small" FontAttributes="300" />
+                    <Button Text="Create" HorizontalOptions="Fill" x:Name="SignUpButton" BackgroundColor="LightSkyBlue" TextColor="White" CornerRadius="50" Margin="25, 10, 25, 0" Clicked="OnSignUp"/>
+                    <Label Text="Already have an account?" x:Name="SignInLabel" FontSize="Micro" Margin="20, 5, 0, 0"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

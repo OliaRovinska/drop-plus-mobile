@@ -35,7 +35,7 @@ namespace DropPlus.Services
                 new ResortModel()
                 {
                     Id = 1,
-                    Image = "https://media-cdn.tripadvisor.com/media/photo-s/08/4a/79/34/pushkar-resorts.jpg",
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/d/df/Town_and_Country_fh000023.jpg",
                     Location = "Синевир",
                     IsSponsored = true,
                     Description = "Солотвино це лікувально – оздоровчий курорт.",
