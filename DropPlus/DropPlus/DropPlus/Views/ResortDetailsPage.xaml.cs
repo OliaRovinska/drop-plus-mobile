@@ -43,12 +43,13 @@ namespace DropPlus.Views
         {
             // add to view model
             var resortViewModel = (ResortViewModel) BindingContext;
-            resortViewModel.Reviews.Add(reviewViewModel);
+            resortViewModel.Reviews.Insert(0, reviewViewModel);
+            resortViewModel.CalculateReviewsListViewHeight();
 
             // add to review
             var review = Mapper.Map<ReviewModel>(reviewViewModel);
             var resort = ResortsService.Get(resortViewModel.Id);
-            resort.Reviews.Add(review); 
+            resort.Reviews.Insert(0, review); 
         }
     }
 }

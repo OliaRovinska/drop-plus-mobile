@@ -91,6 +91,23 @@ namespace DropPlus.ViewModels
             set
             {
                 _reviews = value;
+                CalculateReviewsListViewHeight();
+                OnPropertyChanged();
+            }
+        }
+
+        public void CalculateReviewsListViewHeight()
+        {
+            ReviewsListViewHeight = Reviews.Count * 160;
+        }
+
+        private int _reviewsListViewHeight;
+        public int ReviewsListViewHeight
+        {
+            get => _reviewsListViewHeight;
+            set
+            {
+                _reviewsListViewHeight = value;
                 OnPropertyChanged();
             }
         }
