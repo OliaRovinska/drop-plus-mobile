@@ -20,7 +20,7 @@ namespace DropPlus.ViewModels
 
             PortionSize = 200;
 
-            //SelectedDate = DateTime.Now.Date;
+            SelectedDate = DateTime.Now;
         }
 
         public int Id { get; set; }
@@ -194,7 +194,6 @@ namespace DropPlus.ViewModels
             {
                 _selectedDate = value;
                 OnPropertyChanged();
-                var a = SelectedTrackedDay;
                 OnPropertyChanged("SelectedTrackedDay");
             }
         }
