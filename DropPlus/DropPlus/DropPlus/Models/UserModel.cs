@@ -5,6 +5,7 @@ using AutoMapper;
 using DropPlus.Enums;
 using DropPlus.Services;
 using DropPlus.ViewModels;
+using Xamarin.Forms;
 
 namespace DropPlus.Models
 {
@@ -21,7 +22,7 @@ namespace DropPlus.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Photo { get; set; }
+        public ImageSource Photo { get; set; }
         public string Location { get; set; }
         public int Age { get; set; }
         public SexEnum Sex { get; set; }

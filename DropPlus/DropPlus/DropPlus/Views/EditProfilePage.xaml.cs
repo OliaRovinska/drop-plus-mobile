@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using DropPlus.Helpers;
 using DropPlus.Interfaces;
 using DropPlus.Models;
 using DropPlus.ViewModels;
@@ -30,6 +31,8 @@ namespace DropPlus.Views
 
         private async void OnUploadPhotoClick(object sender, EventArgs e)
         {
+            var userViewModel = (UserViewModel)BindingContext;
+
             var button = (Button)sender;
             button.IsEnabled = false;
             var picturePicker = DependencyService.Get<IPicturePicker>();
@@ -37,8 +40,8 @@ namespace DropPlus.Views
 
             if (stream != null)
             {
-                // save to server!!!
-                UserImage.Source = ImageSource.FromStream(() => stream);
+                var bytes = ConverterHelper.ReadFully(stream);
+                userViewModel.Photo = ImageSource.FromStream(() => new MemoryStream(bytes));
             }
 
             button.IsEnabled = true;

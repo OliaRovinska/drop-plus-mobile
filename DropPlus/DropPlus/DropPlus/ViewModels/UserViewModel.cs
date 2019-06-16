@@ -71,8 +71,8 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private string _photo;
-        public string Photo
+        private ImageSource _photo;
+        public ImageSource Photo
         {
             get => _photo;
             set
