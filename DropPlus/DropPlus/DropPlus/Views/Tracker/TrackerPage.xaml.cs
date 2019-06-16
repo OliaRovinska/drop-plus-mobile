@@ -36,7 +36,8 @@ namespace DropPlus.Views.Tracker
 
         private void OnAddRecordClick(object sender, EventArgs e)
         {
-            var popup = new AddTrackerRecordPopup() {BindingContext = new TrackedDayRecordViewModel()};
+            var user = (UserViewModel)BindingContext;
+            var popup = new AddTrackerRecordPopup() {BindingContext = new TrackedDayRecordViewModel() { Volume = user.PortionSize} };
             popup.OnAddRecord += OnAddRecord;
             PopupNavigation.Instance.PushAsync(popup);
         }

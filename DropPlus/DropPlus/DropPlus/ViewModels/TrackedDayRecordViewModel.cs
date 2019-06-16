@@ -17,9 +17,13 @@ namespace DropPlus.ViewModels
 
             Time = DateTime.Now.TimeOfDay;
 
+            Volume = _step;
+
             DecreasePortionCommand = new Command(DecreasePortion);
             IncreasePortionCommand = new Command(IncreasePortion);
         }
+
+        private int _step = 50;
 
         private int _id;
         public int Id
@@ -79,19 +83,19 @@ namespace DropPlus.ViewModels
         public ICommand IncreasePortionCommand { get; }
         private void IncreasePortion()
         {
-            Volume += 100;
+            Volume += _step;
         }
 
         public ICommand DecreasePortionCommand { get; }
         private void DecreasePortion()
         {
-            if (Volume - 100 > 0)
+            if (Volume - _step > 0)
             {
-                Volume -= 100;
+                Volume -= _step;
             }
             else
             {
-                Volume = 0;
+                Volume = _step;
             }
         }
     }

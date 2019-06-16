@@ -305,22 +305,24 @@ namespace DropPlus.ViewModels
             }
         }
 
+        private int _step = 50;
+
         public ICommand IncreasePortionCommand { get; }
         private void IncreasePortion()
         {
-            PortionSize += 100;
+            PortionSize += _step;
         }
 
         public ICommand DecreasePortionCommand { get; }
         private void DecreasePortion()
         {
-            if (PortionSize - 100 > 0)
+            if (PortionSize - _step > 0)
             {
-                PortionSize -= 100;
+                PortionSize -= _step;
             }
             else
             {
-                PortionSize = 0;
+                PortionSize = _step;
             }
         }
 
