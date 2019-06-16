@@ -11,7 +11,7 @@
 
     <ContentView.Content>
       <StackLayout>
-          <ListView ItemsSource="{Binding Resorts}" RowHeight="100" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected">
+            <ListView ItemsSource="{Binding Resorts}" RowHeight="100" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding ResortsListViewHeight}">
               <ListView.ItemTemplate>
                   <DataTemplate>
                       <ViewCell>

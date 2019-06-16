@@ -21,6 +21,9 @@ namespace DropPlus.ViewModels
             PortionSize = 200;
 
             SelectedDate = DateTime.Now;
+
+            WakeUpHour = new TimeSpan(8, 0, 0);
+            SleepHour = new TimeSpan(23, 0 , 0);
         }
 
         public int Id { get; set; }
