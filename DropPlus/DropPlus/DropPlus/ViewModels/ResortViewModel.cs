@@ -98,7 +98,7 @@ namespace DropPlus.ViewModels
 
         public void CalculateReviewsListViewHeight()
         {
-            ReviewsListViewHeight = Reviews.Count * 160;
+            ReviewsListViewHeight = Reviews.Count * 170;
         }
 
         private int _reviewsListViewHeight;

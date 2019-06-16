@@ -29,8 +29,18 @@ namespace DropPlus.Views
         private void OnNextPage(object sender, EventArgs e)
         {
             var context = (FindTourViewModel) BindingContext;
-            var findTourPage2 = new FindTourPage2() {BindingContext = context};
-            Navigation.PushAsync(findTourPage2);
+            if (context.TourAims.Any(tourAim => tourAim.Name == "Підлікуватися" && tourAim.IsChecked))
+            {
+                // go to 2 page
+                var findTourPage2 = new FindTourPage2() { BindingContext = context };
+                Navigation.PushAsync(findTourPage2);
+            }
+            else
+            {
+                // go to 3 page
+                var findTourPage3 = new FindTourPage3() { BindingContext = context };
+                Navigation.PushAsync(findTourPage3);
+            }
         }
     }
 }

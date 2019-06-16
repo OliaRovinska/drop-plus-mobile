@@ -11,6 +11,12 @@ namespace DropPlus.ViewModels
         {
             TourAims = Mapper.Map<ObservableCollection<TourAimViewModel>>(TourAimsService.GetAll());
             Organs = Mapper.Map<ObservableCollection<OrganViewModel>>(OrgansService.GetAll());
+
+            IsDateImportant = true;
+            IsDistanceImportant = true;
+
+            StartDate = DateTime.Now.AddMonths(1);
+            EndDate = DateTime.Now.AddMonths(1).AddDays(7);
         }
 
         private ObservableCollection<TourAimViewModel> _tourAims;
@@ -53,6 +59,17 @@ namespace DropPlus.ViewModels
             set
             {
                 _endDate = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isDateImportant;
+        public bool IsDateImportant
+        {
+            get => _isDateImportant;
+            set
+            {
+                _isDateImportant = value;
                 OnPropertyChanged();
             }
         }
