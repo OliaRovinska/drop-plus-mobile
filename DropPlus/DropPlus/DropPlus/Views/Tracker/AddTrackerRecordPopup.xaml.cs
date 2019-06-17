@@ -23,15 +23,6 @@ namespace DropPlus.Views.Tracker
         public AddTrackerRecordPopup ()
 		{
 			InitializeComponent ();
-
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += OnClose;
-            CloseImage.GestureRecognizers.Add(tapGestureRecognizer);
-        }
-
-        private void OnClose(object sender, EventArgs e)
-        {
-            PopupNavigation.Instance.PopAsync();
         }
 
         private void OnAddRecordClick(object sender, EventArgs e)

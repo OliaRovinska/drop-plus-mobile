@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              x:Class="DropPlus.Views.Tracker.AddTrackerRecordPopup">
-    <StackLayout VerticalOptions="EndAndExpand" Margin="20, 30" BackgroundColor="White" Padding="15">
-        <Image Source="close.png" HeightRequest="18" WidthRequest="18" HorizontalOptions="End" VerticalOptions="Start" x:Name="CloseImage"/>
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="20, 0" BackgroundColor="White" Padding="15">
         <Label Text="Виберіть кількість:" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button Text="-" Command="{Binding DecreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50" />

@@ -51,6 +51,21 @@ namespace DropPlus.Models
             return result;
         }
 
-        public int Goal => Weight * 30;
+        public int Goal
+        {
+            get
+            {
+                if (IndexOfWeight > 20)
+                {
+                    return Convert.ToInt32(20 * Math.Pow((Height / 100.0), 2) * 30);
+                }
+                else
+                {
+                    return Weight * 30;
+                }
+            }
+        }
+
+        public double IndexOfWeight => Weight / Math.Pow((Height / 100.0), 2);
     }
 }

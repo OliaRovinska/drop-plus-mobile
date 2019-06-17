@@ -20,7 +20,7 @@ namespace DropPlus.Models
         public bool IsSponsored { get; set; }
         public bool IsSanatorium { get; set; }
         public string Description { get; set; }
-        public float? Rating => Reviews.Count > 0 ? Reviews.Average(review => review.Rating) : 0;
+        public double Rating => Reviews.Count > 0 ? Reviews.Average(review => review.Rating) : 0;
         public List<SeasonEnum> Seasons { get; set; }
         public List<ReviewModel> Reviews { get; set; }
         public List<DiseaseModel> Diseases { get; set; }

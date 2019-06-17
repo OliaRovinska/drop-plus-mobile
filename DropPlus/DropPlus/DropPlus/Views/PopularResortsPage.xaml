@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:DropPlus.Controls"
              x:Class="DropPlus.Views.PopularResortsPage"
-             NavigationPage.HasNavigationBar="False">
+             Title="Рекомендовано для вас">
     <ContentPage.Content>
         <StackLayout>
             <Frame BorderColor="Black" Margin="5, 5, 5, 0" x:Name="FindTourFrame">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Підібрати тур" TextColor="{StaticResource TextColor}"/>
-                    <Image Source="add.png" HeightRequest="24" WidthRequest="24"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <Label Text="Підібрати тур" FontSize="Large" TextColor="{StaticResource TextColor}"/>
+                    <Image Source="add.png" HeightRequest="32" WidthRequest="32"/>
                 </StackLayout>
             </Frame>
             <controls:ResortListView />

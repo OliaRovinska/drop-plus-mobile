@@ -11,14 +11,14 @@
 
     <ContentView.Content>
       <StackLayout>
-            <ListView ItemsSource="{Binding Resorts}" RowHeight="100" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding ResortsListViewHeight}">
+            <ListView ItemsSource="{Binding Resorts}" RowHeight="200" SeparatorVisibility="None" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding ResortsListViewHeight}">
               <ListView.ItemTemplate>
                   <DataTemplate>
                       <ViewCell>
                           <AbsoluteLayout Margin="0, 0, 0, 10">
                               <Image Source="{Binding Image}" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                              <Label Text="{Binding Location}" Margin="5, 0, 0, 5" FontSize="18" TextColor="GhostWhite"  AbsoluteLayout.LayoutBounds="0, 1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                              <Image Source="{Binding IsFavourite, Converter={StaticResource FavoriteImageConverter}}" Margin="0, 0, 5, 5" AbsoluteLayout.LayoutBounds="1, 1, 24, 24" AbsoluteLayout.LayoutFlags="PositionProportional">
+                              <Label Text="{Binding LocationAndRating}" Margin="10, 0, 0, 5" FontSize="32" TextColor="GhostWhite"  AbsoluteLayout.LayoutBounds="0, 1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                              <Image Source="{Binding IsFavourite, Converter={StaticResource FavoriteImageConverter}}" Margin="0, 0, 10, 5" AbsoluteLayout.LayoutBounds="1, 1, 48, 48" AbsoluteLayout.LayoutFlags="PositionProportional">
                                   <Image.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding UpdateFavouriteCommand}" />
                                     </Image.GestureRecognizers>

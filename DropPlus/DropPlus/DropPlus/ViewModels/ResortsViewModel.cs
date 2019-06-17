@@ -16,6 +16,6 @@ namespace DropPlus.ViewModels
             }
         }
 
-        public int ResortsListViewHeight => Resorts?.Count * 100 ?? 0;
+        public int ResortsListViewHeight => Resorts?.Count * 200 ?? 0;
     }
 }

@@ -40,6 +40,7 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+        public int OrgansListViewHeight => Organs.Count * 40;
 
         private DateTime _startDate;
         public DateTime StartDate

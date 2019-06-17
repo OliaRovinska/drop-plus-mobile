@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:DropPlus.Controls"
              x:Class="DropPlus.Views.RecommendedResortsPage"
-             Title="Рекомендовані курорти">
+             Title="Підібрано для вас">
     <ContentPage.Content>
         <StackLayout>
             <controls:ResortListView />

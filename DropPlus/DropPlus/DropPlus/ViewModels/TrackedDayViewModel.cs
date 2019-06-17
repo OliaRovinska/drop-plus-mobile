@@ -37,9 +37,21 @@ namespace DropPlus.ViewModels
             {
                 _records = value;
                 OnPropertyChanged();
+                OnPropertyChanged("SortedRecords");
             }
         }
 
+        public ObservableCollection<TrackedDayRecordViewModel> SortedRecords => new ObservableCollection<TrackedDayRecordViewModel>(Records.OrderByDescending(record => record.Time));
+
         public int Drunk => Records.Sum(record => record.Volume);
+
+        public int DrunkInPercentage
+        {
+            get
+            {
+                var result = (int)(Records.Sum(record => record.Volume) / (double)Goal * 100);
+                return result > 100 ? 100 : result;
+            }
+        }
     }
 }

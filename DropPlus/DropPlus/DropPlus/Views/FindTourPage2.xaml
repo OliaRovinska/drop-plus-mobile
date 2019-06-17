@@ -7,19 +7,19 @@
         <ScrollView>
             <StackLayout Padding="20">
                 <Label Text="Що б ви хотіли підлікувати?" Margin="0, 0, 0, 15" FontSize="Large" TextColor="{StaticResource TextColor}" />
-                <ListView ItemsSource="{Binding Organs}" RowHeight="40" ItemSelected="ListView_OnItemSelected">
+                <ListView ItemsSource="{Binding Organs}" RowHeight="40" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding OrgansListViewHeight}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                                     <Switch IsToggled="{Binding IsChecked}" VerticalOptions="CenterAndExpand" />
-                                    <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
+                                    <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Medium" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Далі" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" FontSize="Medium" Clicked="OnNextPage"/>
+                <Button Text="Далі" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" FontSize="Medium" Padding="0, 10" Clicked="OnNextPage"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

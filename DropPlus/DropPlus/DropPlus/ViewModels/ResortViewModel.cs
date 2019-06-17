@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using AutoMapper;
 using DropPlus.Enums;
@@ -37,6 +38,19 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private double _rating;
+        public double Rating
+        {
+            get => _rating;
+            set
+            {
+                _rating = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string LocationAndRating => Location + ", " + $"{Rating:0.0}";
 
         public bool IsFavourite => App.User.FavouriteResorts.Find(resort => resort.Id == Id) != null;
 

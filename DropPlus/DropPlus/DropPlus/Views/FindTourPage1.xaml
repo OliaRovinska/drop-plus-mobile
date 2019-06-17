@@ -6,13 +6,13 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Label Text="З якою метою їдете?" Margin="0, 20" FontSize="Large" TextColor="{StaticResource TextColor}" />
-            <ListView ItemsSource="{Binding TourAims}" RowHeight="50" ItemSelected="ListView_OnItemSelected">
+            <ListView ItemsSource="{Binding TourAims}" ItemSelected="ListView_OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                                 <Switch IsToggled="{Binding IsChecked}" VerticalOptions="CenterAndExpand" />
-                                <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
+                                <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Large" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

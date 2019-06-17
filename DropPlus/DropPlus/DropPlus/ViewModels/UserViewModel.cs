@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using DropPlus.Enums;
+using DropPlus.Helpers;
 using DropPlus.Models;
 using DropPlus.Services;
 using Xamarin.Forms;
@@ -151,7 +152,7 @@ namespace DropPlus.ViewModels
             }
         }
 
-        public string[] Sexes => Enum.GetNames(typeof(SexEnum));
+        public string[] Sexes => EnumHelper.GetDescriptions(typeof(SexEnum)).ToArray();
 
         private TimeSpan _sleepHour;
         public TimeSpan SleepHour

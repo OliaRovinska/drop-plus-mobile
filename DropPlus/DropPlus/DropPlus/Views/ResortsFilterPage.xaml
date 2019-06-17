@@ -15,18 +15,18 @@
             <StackLayout Padding="20, 10">
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Локація" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Entry Text="{Binding Location}" TextColor="{StaticResource TextColor}" WidthRequest="100" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Локація курорту" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Location}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10, 0, 0, 0"/>
                 </StackLayout>
 
-                <Label Text="Хвороби:" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" />
-                <ListView ItemsSource="{Binding Diseases}" RowHeight="30" ItemSelected="ListView_OnItemSelected">
+                <Label Text="Хвороби:" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" />
+                <ListView ItemsSource="{Binding Diseases}" RowHeight="40" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding DiseasesListViewHeight}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                                     <Switch IsToggled="{Binding IsChecked}" VerticalOptions="CenterAndExpand" />
-                                    <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
+                                    <Label Text="{Binding Name}" Margin="5, 0, 0, 0" FontSize="Medium" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -34,24 +34,24 @@
                 </ListView>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Рейтинг: " TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Label Text="від" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="10, 0, 0, 0" />
-                    <Entry Text="{Binding MinRating}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" WidthRequest="30" FontSize="Small" VerticalOptions="Start" />
-                    <Label Text="до" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="15, 0, 0, 0" />
-                    <Entry Text="{Binding MaxRating}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" WidthRequest="30" FontSize="Small" VerticalOptions="Start" />
+                    <Label Text="Рейтинг: " TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Label Text="від" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="10, 0, 0, 0" />
+                    <Picker ItemsSource="{Binding RatingOptions}" SelectedItem="{Binding MinRating}" TextColor="{StaticResource TextColor}" WidthRequest="30" Margin="10, 0, 0, 0" FontSize="Medium" VerticalOptions="Start" />
+                    <Label Text="до" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="15, 0, 0, 0" />
+                    <Picker ItemsSource="{Binding RatingOptions}" SelectedItem="{Binding MaxRating}" TextColor="{StaticResource TextColor}" WidthRequest="30" Margin="10, 0, 0, 0" FontSize="Medium" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Сезон: " TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Picker ItemsSource="{Binding Seasons}" SelectedIndex="{Binding Season, Converter={StaticResource IntEnumConverter}}" TextColor="{StaticResource TextColor}" WidthRequest="100" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Сезон: " TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Picker Margin="10, 0, 0, 0" ItemsSource="{Binding Seasons}" SelectedIndex="{Binding Season, Converter={StaticResource IntEnumConverter}}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
                     <Switch IsToggled="{Binding IsSanatorium}" VerticalOptions="CenterAndExpand" />
-                    <Label Text="Тільки санаторії" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
+                    <Label Text="Тільки санаторії" Margin="5, 0, 0, 0" FontSize="Medium" TextColor="{StaticResource TextColor}" VerticalOptions="Center" />
                 </StackLayout>
 
-                <Button Margin="10, 0" Text="Застосувати" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="40" Clicked="OnApplyFilterClick"/>
+                <Button Margin="10, 0" Text="Застосувати" FontSize="Medium" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="40" Clicked="OnApplyFilterClick"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

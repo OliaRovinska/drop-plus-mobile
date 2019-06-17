@@ -19,13 +19,13 @@
             </Grid.RowDefinitions>
 
             <Grid.Children>
-                <Image Grid.Row="0" Grid.Column="2" Margin="10, 10, 10, 0" Source="history.png" HeightRequest="18" WidthRequest="18" HorizontalOptions="End" VerticalOptions="Start" x:Name="HistoryImage">
+                <Image Grid.Row="0" Grid.Column="2" Margin="15, 15, 15, 15" Source="history.png" HeightRequest="48" WidthRequest="48" HorizontalOptions="End" VerticalOptions="Start" x:Name="HistoryImage">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnHistoryPage"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
 
-                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0, 45, 0">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0, 45, 0">
                     <StackLayout Orientation="Vertical" Spacing="0">
                         <Label Text="Ціль" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalTextAlignment="Center"/>
                         <Label Text="{Binding Goal, StringFormat='{0} мл'}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalTextAlignment="Center" />
@@ -36,22 +36,22 @@
                     </StackLayout>
                 </StackLayout>
 
-                <AbsoluteLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="20, 0">
+                <AbsoluteLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                     <Image Source="circle.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
-                    <Image Source="good.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0.4, 0.32, 16, 16" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Label Text="{Binding DrunkTodayString}" TextColor="{StaticResource TextColor}" FontSize="Medium" AbsoluteLayout.LayoutBounds="0.6, 0.3, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Label Text="{Binding DrunkToday, StringFormat='{0} мл'}" FontAttributes="Bold" TextColor="{StaticResource TextColor}" FontSize="Medium" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                    <Label Text="{Binding DrunkTodayInPercentage, StringFormat='{0}%'}" TextColor="{StaticResource TextColor}" FontSize="Small" AbsoluteLayout.LayoutBounds="0.5, 0.7, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Image Source="good.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0.40, 0.29, 32, 32" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Label Text="{Binding DrunkTodayString}" TextColor="{StaticResource TextColor}" FontSize="Large" AbsoluteLayout.LayoutBounds="0.58, 0.30, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Label Text="{Binding DrunkToday, StringFormat='{0} мл'}" FontAttributes="Bold" TextColor="{StaticResource TextColor}" FontSize="48" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    <Label Text="{Binding DrunkTodayInPercentage, StringFormat='{0}%'}" TextColor="{StaticResource TextColor}" FontSize="Large" AbsoluteLayout.LayoutBounds="0.5, 0.7, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
                 </AbsoluteLayout>
 
-                <StackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="0" Grid.Column="1">
+                <StackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="0" Grid.Column="1" VerticalOptions="Center" WidthRequest="240" Margin="0, 0, 0, 10">
                     <StackLayout Orientation="Horizontal">
-                        <Button Text="-" Command="{Binding DecreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50" />
-                        <Label VerticalTextAlignment="Center" Text="{Binding PortionSize}" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalTextAlignment="Center" />
-                        <Button Text="+" Command="{Binding IncreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Micro" HeightRequest="40" WidthRequest="50"/>
+                        <Button Text="-" Command="{Binding DecreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Medium" HeightRequest="60" WidthRequest="80" />
+                        <Label VerticalTextAlignment="Center" Text="{Binding PortionSize}" TextColor="{StaticResource TextColor}" FontSize="Large" HorizontalTextAlignment="Center" WidthRequest="80" />
+                        <Button Text="+" Command="{Binding IncreasePortionCommand}" TextColor="{StaticResource TextColor}" Padding="0" FontSize="Medium" HeightRequest="60" WidthRequest="80"/>
                     </StackLayout>
-                    <Button Text="Випити воду" Command="{Binding AddWaterRecordCommand}" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Micro" HeightRequest="40" />
-                    <Button Text="Випити інший напій" Clicked="OnAddRecordClick" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Micro" HeightRequest="40" />
+                    <Button Text="Випити воду" Command="{Binding AddWaterRecordCommand}" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Medium" HeightRequest="60" />
+                    <Button Text="Випити інший напій" Clicked="OnAddRecordClick" TextColor="{StaticResource TextColor}" Padding="10, 0" FontSize="Medium" HeightRequest="60" />
                 </StackLayout>
             </Grid.Children>
         </Grid>

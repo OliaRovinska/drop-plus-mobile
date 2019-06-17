@@ -10,22 +10,22 @@
 
                 <StackLayout Orientation="Horizontal" Margin="0, 10">
                     <Switch IsToggled="{Binding IsDateImportant}" />
-                    <Label Text="Час важливий" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                    <Label Text="Час важливий" Margin="5, 0, 0, 0" FontSize="Medium" TextColor="{StaticResource TextColor}" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Margin="0, 10">
                     <Switch IsToggled="{Binding IsDistanceImportant}" />
-                    <Label Text="Відстань важлива" Margin="5, 0, 0, 0" FontSize="Small" TextColor="{StaticResource TextColor}" />
+                    <Label Text="Відстань важлива" Margin="5, 0, 0, 0" FontSize="Medium" TextColor="{StaticResource TextColor}" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" IsVisible="{Binding IsDateImportant}">
-                    <Label Text="Від" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <DatePicker Date="{Binding StartDate}" TextColor="{StaticResource TextColor}" FontSize="Small" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Text="Від" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <DatePicker Date="{Binding StartDate}" TextColor="{StaticResource TextColor}" FontSize="Medium" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" IsVisible="{Binding IsDateImportant}">
-                    <Label Text="До" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <DatePicker Date="{Binding EndDate}" TextColor="{StaticResource TextColor}" FontSize="Small" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Text="До" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <DatePicker Date="{Binding EndDate}" TextColor="{StaticResource TextColor}" FontSize="Medium" Margin="20, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <Grid  VerticalOptions="EndAndExpand">

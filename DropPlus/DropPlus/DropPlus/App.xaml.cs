@@ -4,6 +4,7 @@ using DropPlus.AutoMapper;
 using DropPlus.Enums;
 using DropPlus.Models;
 using DropPlus.Services;
+using DropPlus.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DropPlus.Views.Authentication;
@@ -20,7 +21,8 @@ namespace DropPlus
             InitializeComponent();
 
             Mapping.Initialize();
-            MainPage = new NavigationPage(new SignInPage());
+            User = UsersService.Get("olia@gmail.com");
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

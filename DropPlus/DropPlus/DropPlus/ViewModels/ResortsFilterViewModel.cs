@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using AutoMapper;
 using DropPlus.Enums;
 using DropPlus.Services;
+using DropPlus.Helpers;
 
 namespace DropPlus.ViewModels
 {
@@ -12,10 +13,16 @@ namespace DropPlus.ViewModels
         {
             MinRating = 0;
             MaxRating = 5;
+            RatingOptions = new ObservableCollection<int>();
+            for (int i = 0; i <= MaxRating; i++)
+            {
+                RatingOptions.Add(i);
+            }
             Season = SeasonEnum.Summer;
-            IsSanatorium = true;
             Diseases = Mapper.Map<ObservableCollection<DiseaseViewModel>>(DiseasesService.GetAll());
         }
+
+        public ObservableCollection<int> RatingOptions { get; set; }
 
         private string _location;
         public string Location
@@ -38,9 +45,10 @@ namespace DropPlus.ViewModels
                 OnPropertyChanged();
             }
         }
+        public int DiseasesListViewHeight => Diseases.Count * 40;
 
-        private float _minRating;
-        public float MinRating
+        private int _minRating;
+        public int MinRating
         {
             get => _minRating;
             set
@@ -50,8 +58,8 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private float _maxRating;
-        public float MaxRating
+        private int _maxRating;
+        public int MaxRating
         {
             get => _maxRating;
             set
@@ -83,6 +91,6 @@ namespace DropPlus.ViewModels
             }
         }
 
-        public string[] Seasons => Enum.GetNames(typeof(SeasonEnum));
+        public string[] Seasons => EnumHelper.GetDescriptions(typeof(SeasonEnum)).ToArray();
     }
 }

@@ -18,29 +18,34 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.Children>
-                <controls:Calendar Grid.Column="0" Grid.Row="0" MultiSelectDates="False" DatesFontSize="12" SelectedFontSize="14" SelectedBorderWidth="2" WeekdaysShow="False" WeekdaysFormat="ddd" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+                <controls:Calendar Grid.Column="0" Grid.Row="0" MultiSelectDates="False" DatesFontSize="12" SelectedFontSize="14" SelectedBorderWidth="2" WeekdaysShow="False" WeekdaysFormat="ddd" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" Margin="0, 0, 0, 10" />
                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
-                    <Label Text="{Binding SelectedDate, Converter={StaticResource DateTimeConverter}}" HorizontalOptions="Start" TextColor="{StaticResource TextColor}" FontSize="Small" />
-                    <Label Text="{Binding SelectedTrackedDay.Drunk, StringFormat='Виконано: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Small"/>
+                    <Label Text="{Binding SelectedDate, Converter={StaticResource DateTimeConverter}}" HorizontalOptions="Start" TextColor="{StaticResource TextColor}" FontSize="Medium" />
+                    <Label Text="{Binding SelectedTrackedDay.Goal, StringFormat='Ціль: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
                 </StackLayout>
-                <ListView Grid.Row="2" ItemsSource="{Binding SelectedTrackedDay.Records}" RowHeight="25" ItemSelected="ListView_OnItemSelected">
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                    <Label Text="{Binding SelectedTrackedDay.Drunk, StringFormat='Виконано: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
+                    <Label Text="{Binding SelectedTrackedDay.DrunkInPercentage, StringFormat='Виконано: {0} %'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
+                </StackLayout>
+                <ListView Grid.Row="3" ItemsSource="{Binding SelectedTrackedDay.SortedRecords}" RowHeight="40" ItemSelected="ListView_OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Margin="0, 5">
-                                    <Label Text="{Binding Volume, StringFormat='{0} мл'}" TextColor="{StaticResource TextColor}"/>
-                                    <Label Text="{Binding DrinkType.Name}" TextColor="{StaticResource TextColor}"/>
-                                    <Label Text="{Binding Time, Converter={StaticResource TimeSpanConverter}}" TextColor="{StaticResource TextColor}" HorizontalOptions="CenterAndExpand" />
-                                    <Image Source="edit.png" WidthRequest="18" HeightRequest="18">
+                                    <Label VerticalOptions="Center" Text="{Binding Volume, StringFormat='{0} мл'}" TextColor="{StaticResource TextColor}" FontSize="Small"/>
+                                    <Label VerticalOptions="Center" Text="{Binding DrinkType.Name}" TextColor="{StaticResource TextColor}" FontSize="Small"/>
+                                    <Label VerticalOptions="Center" Text="{Binding Time, Converter={StaticResource TimeSpanConverter}}" TextColor="{StaticResource TextColor}" HorizontalOptions="CenterAndExpand" FontSize="Small" />
+                                    <Image Source="edit.png" WidthRequest="24" HeightRequest="24">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding EditRecordCommand, Source={x:Reference TrackedDayHistoryPage}}" CommandParameter="{Binding Id}"></TapGestureRecognizer>
                                         </Image.GestureRecognizers>
                                     </Image>
-                                    <Image Source="remove.png" WidthRequest="18" HeightRequest="18">
+                                    <Image Source="remove.png" WidthRequest="24" HeightRequest="24" Margin="10, 0">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding RemoveRecordCommand, Source={x:Reference TrackedDayHistoryPage}}" CommandParameter="{Binding Id}"></TapGestureRecognizer>
                                         </Image.GestureRecognizers>
@@ -50,7 +55,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="3" Clicked="OnAddRecordClick"  Text="Додати" FontSize="Small" Padding="0" WidthRequest="200" HorizontalOptions="Center" HeightRequest="35" TextColor="{StaticResource TextColor}" />
+                <Button Grid.Row="4" Clicked="OnAddRecordClick"  Text="Додати" FontSize="Medium" HorizontalOptions="End" TextColor="{StaticResource TextColor}" />
             </Grid.Children>
         </Grid>
     </ContentPage.Content>
