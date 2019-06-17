@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20">
-                <Label Text="Що б ви хотіли підлікувати?" Margin="0, 0, 0, 15" FontSize="Large" TextColor="{StaticResource TextColor}" />
+                <Label Text="Які в вас проблеми?" Margin="0, 0, 0, 15" FontSize="Large" TextColor="{StaticResource TextColor}" />
                 <ListView ItemsSource="{Binding Organs}" RowHeight="40" ItemSelected="ListView_OnItemSelected" HeightRequest="{Binding OrgansListViewHeight}">
                     <ListView.ItemTemplate>
                         <DataTemplate>

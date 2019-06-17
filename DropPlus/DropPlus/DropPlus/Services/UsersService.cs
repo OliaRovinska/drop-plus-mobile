@@ -197,6 +197,24 @@ namespace DropPlus.Services
                     }
                 }
             };
+
+            // user 2
+            var User2 = new UserModel()
+            {
+                FirstName = "Юра",
+                LastName = "Мельник",
+                Email = "melnyk@gmail.com",
+                Password = "123456",
+                Location = "Київ",
+                Age = 25,
+                Photo = ImageSource.FromUri(new Uri("https://i.kinja-img.com/gawker-media/image/upload/s--Tg_qqR3r--/c_scale,f_auto,fl_progressive,q_80,w_800/dnmtn4ksijwyep0xmljk.jpg")),
+                Height = 150,
+                Weight = 58,
+                Sex = SexEnum.Man,
+                SleepHour = new TimeSpan(23, 0, 0),
+                WakeUpHour = new TimeSpan(7, 0, 0),
+            };
+            Users.Add(User2);
         }
 
         public static UserModel Get(string email)

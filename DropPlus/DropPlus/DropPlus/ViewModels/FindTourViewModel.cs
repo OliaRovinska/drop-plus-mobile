@@ -10,7 +10,7 @@ namespace DropPlus.ViewModels
         public FindTourViewModel()
         {
             TourAims = Mapper.Map<ObservableCollection<TourAimViewModel>>(TourAimsService.GetAll());
-            Organs = Mapper.Map<ObservableCollection<OrganViewModel>>(OrgansService.GetAll());
+            Organs = Mapper.Map<ObservableCollection<DiseaseViewModel>>(DiseasesService.GetAll());
 
             IsDateImportant = true;
             IsDistanceImportant = true;
@@ -30,8 +30,8 @@ namespace DropPlus.ViewModels
             }
         }
 
-        private ObservableCollection<OrganViewModel> _organs;
-        public ObservableCollection<OrganViewModel> Organs
+        private ObservableCollection<DiseaseViewModel> _organs;
+        public ObservableCollection<DiseaseViewModel> Organs
         {
             get => _organs;
             set

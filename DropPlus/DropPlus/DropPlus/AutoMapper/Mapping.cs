@@ -25,9 +25,6 @@ namespace DropPlus.AutoMapper
                 config.CreateMap<TourAimModel, TourAimViewModel>();
                 config.CreateMap<TourAimViewModel, TourAimModel>();
 
-                config.CreateMap<OrganModel, OrganViewModel>();
-                config.CreateMap<OrganViewModel, OrganModel>();
-
                 config.CreateMap<DrinkTypeModel, DrinkTypeViewModel>();
                 config.CreateMap<DrinkTypeViewModel, DrinkTypeModel>();
 
