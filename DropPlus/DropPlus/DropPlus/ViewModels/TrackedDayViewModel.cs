@@ -43,13 +43,13 @@ namespace DropPlus.ViewModels
 
         public ObservableCollection<TrackedDayRecordViewModel> SortedRecords => new ObservableCollection<TrackedDayRecordViewModel>(Records.OrderByDescending(record => record.Time));
 
-        public int Drunk => Records.Sum(record => record.Volume);
+        public int Drunk => Records.Sum(record => Convert.ToInt32(record.Volume * record.DrinkType.Coefficient));
 
         public int DrunkInPercentage
         {
             get
             {
-                var result = (int)(Records.Sum(record => record.Volume) / (double)Goal * 100);
+                var result = (int)(Records.Sum(record => Convert.ToInt32(record.Volume * record.DrinkType.Coefficient)) / (double)Goal * 100);
                 return result > 100 ? 100 : result;
             }
         }

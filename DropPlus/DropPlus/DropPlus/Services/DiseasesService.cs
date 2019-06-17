@@ -31,15 +31,7 @@ namespace DropPlus.Services
 
         public static DiseaseModel Get(string name)
         {
-            try
-            {
-                return Diseases.First(disease => disease.Name == name);
-            }
-            catch (Exception e)
-            {
-                var b = e;
-                return null;
-            }
+            return Diseases.First(disease => disease.Name == name);
         }
 
         public static List<DiseaseModel> GetAll()

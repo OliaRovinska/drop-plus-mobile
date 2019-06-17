@@ -29,7 +29,7 @@
                     <Label Text="{Binding SelectedTrackedDay.Goal, StringFormat='Ціль: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
-                    <Label Text="{Binding SelectedTrackedDay.Drunk, StringFormat='Виконано: {0}'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
+                    <Label Text="{Binding SelectedTrackedDay.Drunk, StringFormat='Виконано: {0}'}" HorizontalOptions="Start" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
                     <Label Text="{Binding SelectedTrackedDay.DrunkInPercentage, StringFormat='Виконано: {0} %'}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource TextColor}" FontSize="Medium"/>
                 </StackLayout>
                 <ListView Grid.Row="3" ItemsSource="{Binding SelectedTrackedDay.SortedRecords}" RowHeight="40" ItemSelected="ListView_OnItemSelected">

@@ -12,5 +12,16 @@
                 OnPropertyChanged();
             }
         }
+
+        private double _coefficient;
+        public double Coefficient
+        {
+            get => _coefficient;
+            set
+            {
+                _coefficient = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

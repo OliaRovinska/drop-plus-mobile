@@ -10,53 +10,52 @@
             <converters:IntEnumConverter x:Key="IntEnumConverter"/>
             <converters:DefaultPhotoConverter x:Key="DefaultPhotoConverter"/>
             <Thickness x:Key="stackLayoutThickness" Left="10" Right="10" Top="0" Bottom="0" />
-            <x:Double x:Key="entryWidth">100</x:Double>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10, 10, 10, 10">
-                <abstractions:CircleImage x:Name="UserImage" Source="{Binding Photo, Converter={StaticResource DefaultPhotoConverter}}" Aspect="AspectFill" WidthRequest="48" HeightRequest="48" HorizontalOptions="Center" />
+                <abstractions:CircleImage x:Name="UserImage" Source="{Binding Photo, Converter={StaticResource DefaultPhotoConverter}}" Aspect="AspectFill" WidthRequest="108" HeightRequest="108" HorizontalOptions="Center" />
 
-                <Button Clicked="OnUploadPhotoClick" Margin="0, 0, 0, 10" Padding="20, 0" Text="Змінити фото" TextColor="{StaticResource TextColor}" FontSize="Micro" HeightRequest="35" HorizontalOptions="CenterAndExpand" />
+                <Button Clicked="OnUploadPhotoClick" Margin="0, 0, 0, 10" Padding="20, 0" Text="Змінити фото" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Локація" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Entry Text="{Binding Location}" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Локація" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Location}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
                     <Label Text="Вік" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Entry Text="{Binding Age}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Entry Text="{Binding Age}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Стать" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Picker ItemsSource="{Binding Sexes}" SelectedIndex="{Binding Sex, Converter={StaticResource IntEnumConverter}}" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Стать" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Picker ItemsSource="{Binding Sexes}" SelectedIndex="{Binding Sex, Converter={StaticResource IntEnumConverter}}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Вага" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Entry Text="{Binding Weight}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Вага" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Weight}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Зріст" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <Entry Text="{Binding Height}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Зріст" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Height}" Keyboard="Numeric" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Прокидаюся о" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <TimePicker Time="{Binding WakeUpHour}" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Прокидаюся о" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <TimePicker Time="{Binding WakeUpHour}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="{StaticResource stackLayoutThickness}">
-                    <Label Text="Йду спати о" TextColor="{StaticResource TextColor}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
-                    <TimePicker Time="{Binding SleepHour}" TextColor="{StaticResource TextColor}" WidthRequest="{StaticResource entryWidth}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
+                    <Label Text="Йду спати о" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                    <TimePicker Time="{Binding SleepHour}" TextColor="{StaticResource TextColor}" FontSize="Medium" HorizontalOptions="EndAndExpand" VerticalOptions="Start" />
                 </StackLayout>
 
-                <Button Margin="{StaticResource stackLayoutThickness}" Text="Зберегти" FontSize="Small" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" HeightRequest="40" Clicked="OnSaveProfile"/>
+                <Button Margin="{StaticResource stackLayoutThickness}" Text="Зберегти" FontSize="Medium" TextColor="{StaticResource TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Clicked="OnSaveProfile"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -221,7 +221,7 @@ namespace DropPlus.ViewModels
                 var days = TrackedDays.Where(trackedDay => trackedDay.Date.ToString("d") != DateTime.Now.ToString("d")).OrderByDescending(trackedDay => trackedDay.Date).ToList();
                 for (int i = 0; i < days.Count(); i++)
                 {
-                    if (days[i].Records.Sum(record => record.Volume) >= days[i].Goal)
+                    if (days[i].Records.Sum(record => Convert.ToInt32(record.Volume * record.DrinkType.Coefficient)) >= days[i].Goal)
                     {
                         numberOfDays++;
                     }
@@ -260,7 +260,7 @@ namespace DropPlus.ViewModels
                 }
                 else
                 {
-                    return trackedToday.Records.Sum(record => record.Volume);
+                    return trackedToday.Records.Sum(record => Convert.ToInt32(record.Volume * record.DrinkType.Coefficient));
                 }
             }
         }
@@ -300,7 +300,7 @@ namespace DropPlus.ViewModels
                 }
                 else
                 {
-                    var result = (int)(trackedToday.Records.Sum(record => record.Volume) / (double)trackedToday.Goal * 100);
+                    var result = (int)(trackedToday.Records.Sum(record => Convert.ToInt32(record.Volume * record.DrinkType.Coefficient)) / (double)trackedToday.Goal * 100);
                     return result > 100 ? 100 : result;
                 }
             }

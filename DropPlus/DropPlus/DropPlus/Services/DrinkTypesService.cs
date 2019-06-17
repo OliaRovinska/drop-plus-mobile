@@ -12,12 +12,12 @@ namespace DropPlus.Services
         {
             DrinkTypes = new List<DrinkTypeModel>()
             {
-                new DrinkTypeModel() {Name = "Вода"},
-                new DrinkTypeModel() {Name = "Сік"},
-                new DrinkTypeModel() {Name = "Кава"},
-                new DrinkTypeModel() {Name = "Чай"},
-                new DrinkTypeModel() {Name = "Сода"},
-                new DrinkTypeModel() {Name = "Квас"}
+                new DrinkTypeModel() {Name = "Вода", Coefficient = 1},
+                new DrinkTypeModel() {Name = "Сік", Coefficient = 0.6},
+                new DrinkTypeModel() {Name = "Кава", Coefficient = 0.4},
+                new DrinkTypeModel() {Name = "Чай", Coefficient = 0.4},
+                new DrinkTypeModel() {Name = "Сода", Coefficient = 0.2},
+                new DrinkTypeModel() {Name = "Квас", Coefficient = 0.6}
             };
         }
 

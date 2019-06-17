@@ -21,8 +21,8 @@ namespace DropPlus
             InitializeComponent();
 
             Mapping.Initialize();
-            User = UsersService.Get("olia@gmail.com");
-            MainPage = new NavigationPage(new MainPage());
+            //User = UsersService.Get("olia@gmail.com");
+            MainPage = new NavigationPage(new SignInPage());
         }
 
         protected override void OnStart()

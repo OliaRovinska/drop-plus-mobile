@@ -4,21 +4,23 @@
              x:Class="DropPlus.Views.Authentication.SignUpPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="LightSkyBlue">
-            <Label Text="Sign Up" FontSize="36" Margin="5, 10, 0, 15" TextColor="White" HorizontalOptions="StartAndExpand" />
-            <Frame CornerRadius="40" BackgroundColor="White" Padding="10" VerticalOptions="Fill">
-                <StackLayout Spacing="3">
-                    <Label Text="Hello" FontSize="Large" Margin="5, 5, 0, 0" x:Name="HelloLabel"/>
-                    <Label Text="Create an account to continue" FontSize="Micro" Margin="5, 0, 0, 0"/>
-                    <Label x:Name="Error" IsVisible="False" FontSize="Micro" TextColor="Red"/>
-                    <Entry Placeholder="Ім'я" Text="{Binding FirstName}" FontSize="Small" FontAttributes="300" />
-                    <Entry Placeholder="Прізвище" Text="{Binding LastName}" FontSize="Small" FontAttributes="300" />
-                    <Entry Placeholder="Email address" Text="{Binding Email}" FontSize="Small" FontAttributes="300" />
-                    <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" FontSize="Small" FontAttributes="300" />
-                    <Button Text="Create" HorizontalOptions="Fill" x:Name="SignUpButton" BackgroundColor="LightSkyBlue" TextColor="White" CornerRadius="50" Margin="25, 10, 25, 0" Clicked="OnSignUp"/>
-                    <Label Text="Already have an account?" x:Name="SignInLabel" FontSize="Micro" Margin="20, 5, 0, 0"/>
-                </StackLayout>
-            </Frame>
+        <StackLayout BackgroundColor="LightSkyBlue" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="Sign Up" FontSize="40" Margin="10, 10, 0, 15" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                <Frame CornerRadius="30" BackgroundColor="White" Padding="10" VerticalOptions="Fill">
+                    <StackLayout Spacing="3">
+                        <Label Text="Hello" FontSize="Large" Margin="5, 5, 0, 0" x:Name="HelloLabel"/>
+                        <Label Text="Create an account to continue" FontSize="Small" Margin="5, 0, 0, 0"/>
+                        <Label x:Name="Error" IsVisible="False" FontSize="Small" TextColor="Red"/>
+                        <Entry Placeholder="Ім'я" Text="{Binding FirstName}" FontSize="Medium" FontAttributes="300" />
+                        <Entry Placeholder="Прізвище" Text="{Binding LastName}" FontSize="Medium" FontAttributes="300" />
+                        <Entry Placeholder="Email address" Text="{Binding Email}" FontSize="Medium" FontAttributes="300" />
+                        <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" FontSize="Medium" FontAttributes="300" />
+                        <Button Text="Create" FontSize="Medium" HorizontalOptions="Fill" x:Name="SignUpButton" BackgroundColor="LightSkyBlue" TextColor="White" CornerRadius="50" Margin="25, 10, 25, 0" Clicked="OnSignUp"/>
+                        <Label Text="Already have an account? Click here" x:Name="SignInLabel" FontSize="Small" Margin="20, 10, 0, 0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

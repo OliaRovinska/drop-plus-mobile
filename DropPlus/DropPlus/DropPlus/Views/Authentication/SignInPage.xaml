@@ -4,19 +4,21 @@
              x:Class="DropPlus.Views.Authentication.SignInPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="LightSkyBlue">
-            <Label Text="Sign In" FontSize="36" Margin="5, 20, 0, 25" TextColor="White" HorizontalOptions="StartAndExpand" />
-            <Frame CornerRadius="40" BackgroundColor="White" Padding="10" VerticalOptions="Fill">
-                <StackLayout>
-                    <Label Text="Hello" FontSize="Large" Margin="5, 5, 0, 0" x:Name="HelloLabel"/>
-                    <Label Text="Log into your account to continue" FontSize="Micro" Margin="5, 0, 0, 0"/>
-                    <Label x:Name="EmailError" IsVisible="False" FontSize="Micro" TextColor="Red"/>
-                    <Entry Placeholder="Email" x:Name="Email" Text="" FontSize="Small" FontAttributes="300" Margin="10, 0" />
-                    <Entry Placeholder="Password" x:Name="Password" Text="" IsPassword="True" FontSize="Small" FontAttributes="300" Margin="10, 0" />
-                    <Button Text="Log in" HorizontalOptions="Fill" x:Name="SignInButton" BackgroundColor="LightSkyBlue" TextColor="White" CornerRadius="50" Margin="25, 10, 25, 0" Clicked="OnSignIn"/>
-                    <Label Text="Don't have an account?" x:Name="SignUpLabel" FontSize="Micro" Margin="20, 5, 0, 0"/>
-                </StackLayout>
-            </Frame>
+        <StackLayout BackgroundColor="LightSkyBlue" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="Sign In" FontSize="40" Margin="10, 20, 0, 25" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                <Frame CornerRadius="30" BackgroundColor="White" Padding="10" VerticalOptions="Fill">
+                    <StackLayout>
+                        <Label Text="Hello" FontSize="Large" Margin="5, 5, 0, 0" x:Name="HelloLabel"/>
+                        <Label Text="Log into your account to continue" FontSize="Small" Margin="5, 0, 0, 0"/>
+                        <Label x:Name="EmailError" IsVisible="False" FontSize="Small" TextColor="Red"/>
+                        <Entry Placeholder="Email" x:Name="Email" Text="" FontSize="Medium" FontAttributes="300" Margin="10, 0" />
+                        <Entry Placeholder="Password" x:Name="Password" Text="" IsPassword="True" FontSize="Medium" FontAttributes="300" Margin="10, 0" />
+                        <Button Text="Log in" FontSize="Medium" HorizontalOptions="Fill" x:Name="SignInButton" BackgroundColor="LightSkyBlue" TextColor="White" CornerRadius="50" Margin="25, 10, 25, 0" Clicked="OnSignIn"/>
+                        <Label Text="Don't have an account? Click here" x:Name="SignUpLabel" FontSize="Small" Margin="20, 10, 0, 0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
