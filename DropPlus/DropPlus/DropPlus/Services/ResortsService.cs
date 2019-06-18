@@ -391,8 +391,31 @@ namespace DropPlus.Services
 
         public static List<ResortModel> GetRecommended(FindTourViewModel model)
         {
-            // TODO: add some logic
-            return Resorts;
+            IEnumerable<ResortModel> result = Resorts;
+            var checkedDiseases = Mapper.Map<List<DiseaseModel>>(model.Organs.Where(disease => disease.IsChecked));
+            if (checkedDiseases.Any())
+            {
+                result = result.Where(resort => resort.Diseases.Select(disease => disease.Name).Intersect(checkedDiseases.Select(disease => disease.Name)).Any());
+            }
+
+            if (model.IsDateImportant)
+            {
+                if (model.StartDate.Month == 11 || model.StartDate.Month == 0 || model.StartDate.Month == 1)
+                {
+                    result = result.Where(resort => resort.Seasons.Contains(SeasonEnum.Winter));
+                } else if (model.StartDate.Month == 2 || model.StartDate.Month == 3 || model.StartDate.Month == 4)
+                {
+                    result = result.Where(resort => resort.Seasons.Contains(SeasonEnum.Spring));
+                } else if (model.StartDate.Month == 5 || model.StartDate.Month == 6 || model.StartDate.Month == 7)
+                {
+                    result = result.Where(resort => resort.Seasons.Contains(SeasonEnum.Summer));
+                } else if (model.StartDate.Month == 8 || model.StartDate.Month == 9 || model.StartDate.Month == 10)
+                {
+                    result = result.Where(resort => resort.Seasons.Contains(SeasonEnum.Autumn));
+                }
+            }
+
+            return result.ToList();
         }
 
         public static void SetFilter(ResortsFilterViewModel filter)
